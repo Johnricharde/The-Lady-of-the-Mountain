@@ -3,7 +3,7 @@ const app = document.getElementById('app');
 let screen = document.getElementById('screen');
 
 let header = "-TALES OF VARGEN-";
-let img = "/img/startscreen.jpg";
+let img = "img/startscreen.jpg";
 let paragraph1 = `<h3>In the realm of Vargen,</h3>`;
 let paragraph2 = `where the echoes of ancient legends intertwine with the whispers of untold secrets,<br>your journey begins...<br><br>The frigid winds of the Northlands carry tales of the Lady of the Mountain, a mysterious hag with the power to grant any wish. She is revered and feared, a source of both hope and dread among the people of this frosty land.<br><br>An urgent need burns in your heart to seek out the enigmatic hag. Perhaps it's a desperate plea for a wish that could change your life, or a quest for answers that have eluded you for too long.<br><br>One thing is certain - the journey to the summit of Mount Mournstone, where the Lady of the Mountain is rumored to dwell, is perilous and shrouded in mystery.<br><br>Few who have ventured there have returned, and those who do are forever changed by the trials they endured...`;
 let = buttons = `<button onclick="enterBrusVillage()">BEGIN</button>`;
@@ -30,7 +30,7 @@ updateScreen()
 // CHAPTER ONE /////////////////////////////////////////////////////////////////////////////////////// CHAPTER ONE //
 function enterBrusVillage() {
     header = "-BRUS VILLAGE-"
-    img = "/img/brus.jpg"
+    img = "img/brus.jpg"
     paragraph1 = `As you enter the village of Brus at the foot of Mount Mournstone, you are greeted by a quaint and rustic settlement.<br><br>Timbered cottages with thatched roofs line the cobblestone streets, their windows adorned with flickering candlelight against the encroaching gloom. The air is filled with the scent of burning hearths and the distant murmur of hushed conversations.<br><br>Three options beckon before you:`
     paragraph2 = `<h3>YOU CHOOSE TO...</h3>`
     buttons = /*HTML*/`
@@ -43,7 +43,7 @@ function enterBrusVillage() {
 // VISIT THE TAVERN ------------------------------------------------------------------------------------- VISIT THE TAVERN
 function visitTavern() {
     header = "-FROSTHOLM LODGE-"
-    img = "/img/tavern.jpg"
+    img = "img/tavern.jpg"
     paragraph1 = `The tavern's sturdy oak door swings open, revealing a warm and welcoming interior.<br><br>The atmosphere inside Frostholm Lodge is cozy, with a handful of patrons scattered at wooden tables, engaged in quiet conversations or enjoying their meals. The hearth crackles merrily, casting a comforting warmth across the room.`
     buttons = /*HTML*/`
     <button onclick="tavernBarkeep()">Speak to the barkeep</button><br>
@@ -55,7 +55,7 @@ function visitTavern() {
 // Speak with the barkeep ---------------------------------------------------------------------------- Speak with the barkeep
 function tavernBarkeep() {
     header = "-BARKEEPER-"
-    img = "/img/tavern-barkeep.jpg"
+    img = "img/tavern-barkeep.jpg"
     paragraph1 = `Seated in the corner of the tavern, you notice an innkeeper who bears the marks of a life lived beyond these rustic walls. His rugged, well-built frame suggests a history filled with battles or adventurous pursuits, but his eyes, though sharp, hold a distant, world-weary gaze. With each wipe of a glass, his hands move mechanically, and his responses are succinct.<br><br>He doesn't exude warmth, but neither does he seem unfriendly. Engaging him might reveal hints of a past that he's chosen to keep at a distance, leaving you to wonder about the stories he's left behind.`
     buttons = /*HTML*/`
     <button onclick="askAboutTheLady()">Ask about the Lady of the Mountain</button><br>
@@ -92,7 +92,7 @@ function acceptBarkeepsQuest() {
     }
 function leaveBrus() {
     header = "-THE PATH AHEAD-"
-    img = "/img/brus-departure.jpg"
+    img = "img/brus-departure.jpg"
     paragraph1 = `With a resolute heart, you step away from the comforting embrace of the village of Brus.<br>The cobblestone streets gradually give way to a rugged, snow-covered terrain as you begin your arduous journey toward the daunting silhouette of Mount Mournstone. The air is thick with anticipation, and the whispers of legends and mysteries cling to your every step.<br><br>Three distinct paths now lay before you:`;
     buttons = /*HTML*/`
         <button onclick="forestPath()">Follow the Forest Trail</button>
@@ -106,7 +106,7 @@ function leaveBrus() {
 // CHAPTER TWO /////////////////////////////////////////////////////////////////////////////////////// CHAPTER TWO //
 function forestPath() {
     header = "-THE FOREST TRAIL-"
-    img = "/img/forest-path.jpg"
+    img = "img/forest-path.jpg"
     paragraph1 = `You opt for the Forest Trail, venturing into the snow-covered woods.<br>Towering trees create a natural canopy overhead, and the world is hushed, save for the soft crunch of your boots in the pristine snow. The path weaves through the ancient forest, where legends of hidden creatures and spectral whispers thrive.<br><br>As you continue your journey, you come across an unusual sight - a large, gnarled tree with a gaping hollow in its trunk. Within the hollow, you spot a shimmering, ethereal light. It pulses softly, casting an eerie glow that dances upon the surrounding snow.`;
     buttons = /*HTML*/`
         <button>Approach the light</button>
