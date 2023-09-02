@@ -1,0 +1,76 @@
+body {
+    background-color: rgb(83, 97, 99);
+    background-image: linear-gradient(rgb(117, 137, 140), rgb(43, 51, 52));
+    color: rgb(221, 221, 221);
+    text-shadow: black 0 0 5px;
+    margin: 0;
+    padding: 0;
+}
+
+#app {
+    margin: 0;
+    padding: 0;
+}
+
+#container-box {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.container {
+    padding: 0;
+    margin: 0 auto;
+    width: 100vw;
+    height: 100vh;
+
+}
+
+#screen {
+    margin: auto;
+    width: 500px;
+    height: 100vh;
+    background-color: rgb(62, 71, 72);
+}
+
+h1 {
+    margin: 0px;
+    padding: 10px;
+}
+p {
+    padding: 0 45px;
+}
+
+img {
+    width: 400px;
+    border-radius: 15px;
+}
+
+button {
+    width: 400px;
+    font-weight: bold;
+    font-size: 15px;
+    margin: 5px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    background-color: rgb(100, 100, 100);
+    color: rgb(177, 177, 177);
+    text-shadow: black 0 0 5px;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+    padding: 7px 17px;
+    margin: 1.5px;
+    font-size: 17px;
+    border-radius: 5px;
+    color: rgb(200, 255, 255);
+}
+
+audio {
+    margin: 0px;
+    padding: 0px;
+}
