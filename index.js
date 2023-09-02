@@ -106,7 +106,7 @@ function leaveBrus() {
 // CHAPTER TWO /////////////////////////////////////////////////////////////////////////////////////// CHAPTER TWO //
 function forestPath() {
     header = "-THE FOREST TRAIL-"
-    img = "/img/forest-path.jpg"
+    img = "/img/treetrunk.jpg"
     paragraph1 = `You opt for the Forest Trail, venturing into the snow-covered woods.<br>Towering trees create a natural canopy overhead, and the world is hushed, save for the soft crunch of your boots in the pristine snow. The path weaves through the ancient forest, where legends of hidden creatures and spectral whispers thrive.<br><br>As you continue your journey, you come across an unusual sight - a large, gnarled tree with a gaping hollow in its trunk. Within the hollow, you spot a shimmering, ethereal light. It pulses softly, casting an eerie glow that dances upon the surrounding snow.`;
     buttons = /*HTML*/`
         <button>Approach the light</button>
