@@ -4,9 +4,13 @@ let screen = document.getElementById('screen');
 
 let header = "-TALES OF VARGEN-";
 let img = "/img/startscreen.jpg";
-let paragraph1 = `<h3>In the realm of Vargen,</h3>`;
-let paragraph2 = `where the echoes of ancient legends intertwine with the whispers of untold secrets,<br>your journey begins...<br><br>The frigid winds of the Northlands carry tales of the Lady of the Mountain, a mysterious hag with the power to grant any wish. She is revered and feared, a source of both hope and dread among the people of this frosty land.<br><br>An urgent need burns in your heart to seek out the enigmatic hag. Perhaps it's a desperate plea for a wish that could change your life, or a quest for answers that have eluded you for too long.<br><br>One thing is certain - the journey to the summit of Mount Mournstone, where the Lady of the Mountain is rumored to dwell, is perilous and shrouded in mystery.<br><br>Few who have ventured there have returned, and those who do are forever changed by the trials they endured...`;
-let = buttons = `<button onclick="enterBrusVillage()">BEGIN</button>`;
+let paragraph1 = ``;
+let paragraph2 = ``;
+let = buttons = ``;
+
+{/* <h3>In the realm of Vargen,</h3> */}
+// where the echoes of ancient legends intertwine with the whispers of untold secrets,<br>your journey begins...<br><br>The frigid winds of the Northlands carry tales of the Lady of the Mountain, a mysterious hag with the power to grant any wish. She is revered and feared, a source of both hope and dread among the people of this frosty land.<br><br>An urgent need burns in your heart to seek out the enigmatic hag. Perhaps it's a desperate plea for a wish that could change your life, or a quest for answers that have eluded you for too long.<br><br>One thing is certain - the journey to the summit of Mount Mournstone, where the Lady of the Mountain is rumored to dwell, is perilous and shrouded in mystery.<br><br>Few who have ventured there have returned, and those who do are forever changed by the trials they endured...
+//* <button onclick="enterBrusVillage()">BEGIN</button> *//
 
 // VIEW ///////////////////////////////////////////
 updateScreen()
@@ -24,7 +28,7 @@ updateScreen()
     }
 
 // CONTROLLER ///////////////////////////////////
-
+enterBrusVillage()
 
 
 // CHAPTER ONE /////////////////////////////////////////////////////////////////////////////////////// CHAPTER ONE //
@@ -37,6 +41,7 @@ function enterBrusVillage() {
         <button onclick="visitTavern()">Visit the Tavern</button><br>
         <button>Visit the General Store</button><br>
         <button>Visit the Village Elder</button>
+        <button>Turn back</button>
     `
     updateScreen()
 }
@@ -105,13 +110,57 @@ function leaveBrus() {
 // CHAPTER ONE END /////////////////////////////////////////////////////////////////////////////////////// CHAPTER ONE END //
 // CHAPTER TWO /////////////////////////////////////////////////////////////////////////////////////// CHAPTER TWO //
 function forestPath() {
-    header = "-THE FOREST TRAIL-"
+    header = "-GLOWING TREE TRUNK-"
     img = "/img/treetrunk.jpg"
     paragraph1 = `You opt for the Forest Trail, venturing into the snow-covered woods.<br>Towering trees create a natural canopy overhead, and the world is hushed, save for the soft crunch of your boots in the pristine snow. The path weaves through the ancient forest, where legends of hidden creatures and spectral whispers thrive.<br><br>As you continue your journey, you come across an unusual sight - a large, gnarled tree with a gaping hollow in its trunk. Within the hollow, you spot a shimmering, ethereal light. It pulses softly, casting an eerie glow that dances upon the surrounding snow.`;
     buttons = /*HTML*/`
-        <button>Approach the light</button>
+        <button onclick="approachLight()">Approach the light</button>
         <button>Observe Cautiously</button>
         <button>Bypass the Tree</button>
     `
      updateScreen()
 }
+function approachLight() {
+    paragraph1 = `You cautiously approach the gnarled tree and the enigmatic light within its hollow trunk. As you draw nearer, the glow intensifies, bathing the surrounding area in an ethereal radiance. It's a mesmerizing sight, like a beckoning beacon in the cold, dark forest.<br><br>As you inch closer, you notice the source of the light is a small, glowing orb, hovering just above the hollow's floor. It seems to respond to your presence, pulsing gently in response to your movements.`;
+    buttons = /*HTML*/`
+        <button onclick="(takeTheOrb())">Take the orb</button>
+        <button>Speak to the Orb</button>
+        <button>Step back</button>
+    `
+     updateScreen()
+}
+function takeTheOrb() {
+    paragraph1 = `You extend your hand toward the glowing orb, your fingers tingling with anticipation. As your hand makes contact with the radiant sphere, a surge of warmth and energy flows through you. It's as if the orb is a conduit to a realm beyond, a world of ancient mysteries and untold secrets.<br><br>The forest around you seems to come alive with whispers, and the ethereal light dances around your hand, creating mesmerizing patterns in the air. You feel a profound connection with the orb, as though it has chosen you for a purpose that remains veiled in enigma.<br><br>With the orb in your grasp, you sense an unspoken invitation to continue your journey, guided by the mysteries it holds.`;
+    buttons = /*HTML*/`
+        <button onclick="lonelyWolf()">Continue</button>
+    `
+     updateScreen()
+}
+function lonelyWolf() {
+    header = "-A LONELY WOLF-"
+    img = "/img/wolf.jpg"
+    paragraph1 = `As you trudge deeper into the snow-clad forest, a sudden movement captures your attention. Against the pristine, white canvas of the landscape, a lone black wolf emerges. Its dark fur stands in stark contrast to the snowy surroundings, and its eyes gleam with hunger and predatory intent.<br><br>The wolf's demeanor leaves little room for doubt. It appears hostile, its gaze locked onto you with a hunger that sends a shiver down your spine.`;
+    buttons = /*HTML*/`
+        <button onclick="fightTheWolf()">Fight</button>
+        <button>Offer food</button>
+        <button>Run away</button>
+    `
+     updateScreen()
+}
+function fightTheWolf() {
+    paragraph1 = `You decide to confront the menacing black wolf head-on, bracing yourself for a fierce battle. With adrenaline pumping through your veins, you draw your weapon and prepare to defend yourself.<br><br>The wolf lunges at you with lightning speed, teeth bared and claws slashing through the air. The battle that ensues is brutal and intense, a clash of survival instincts between predator and prey. You trade blows with the wolf, each strike taking its toll on both you and the formidable beast.<br><br>After a relentless struggle, your determination and combat skills prevail. You manage to land a decisive blow, causing it to whimper and retreat into the forest. The fight has taken its toll on you as well, leaving you battered and bruised, with deep scratches and bite marks as souvenirs of the fierce encounter.`;
+    buttons = /*HTML*/`
+        <button onclick="forestCamp()">Continue</button>
+    `
+     updateScreen()
+}
+function forestCamp() {
+    header = "-FOREST CAMP-"
+    img = "/img/forest-camp.jpg"
+    paragraph1 = ``;
+    buttons = /*HTML*/`
+        <button onclick="()">Sleep</button>
+    `
+     updateScreen()
+}
+// forestCamp()
