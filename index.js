@@ -2,8 +2,8 @@
 const app = document.getElementById('app');
 let screen = document.getElementById('screen');
 
-let header = "-TALES OF VARGEN-";
-let img = "/img/startscreen.jpg";
+let header = "";
+let img = "";
 let paragraph1 = ``;
 let paragraph2 = ``;
 let buttons = ``;
@@ -40,7 +40,7 @@ function enterBrusVillage() {
     header = "-BRUS VILLAGE-"
     img = "/img/brus.jpg"
     paragraph1 = `As you enter the village of Brus at the foot of Mount Mournstone, you are greeted by a quaint and rustic settlement.<br><br>Timbered cottages with thatched roofs line the cobblestone streets, their windows adorned with flickering candlelight against the encroaching gloom. The air is filled with the scent of burning hearths and the distant murmur of hushed conversations.<br><br>Three options beckon before you:`
-    paragraph2 = `<h3>YOU CHOOSE TO...</h3>`
+    paragraph2 = ``
     buttons = /*HTML*/`
         <button onclick="visitTavern()">Visit the Tavern</button><br>
         <button>Visit the General Store</button><br>
@@ -297,7 +297,7 @@ function trollLightTorch() {
 function caveLairHole() {
     header = "-ICE CAVE LAIR-"
     img = "/img/ice-lair-hole.jpg"
-    paragraph1 = `You retrieve a torch from your belongings and ignite it. As the flickering flames dance to life, the once-shrouded den is bathed in a warm, orange glow. In that revealing light, you behold the behemoth responsible for the tumultuous quake.<br><br>Before you stands an ice troll of staggering proportions. Towering high, it dwarfs any living creature you've ever seen, its bluish-white, frigid skin glistening in the torchlight. The troll's gnarled and muscular form exudes an intimidating aura, but there's a hint of vulnerability in its glowing, ice-blue eyes. It seems this massive creature is as much a prisoner of this desolate cave as you are.<br><br>With the torch burning fiercely, you also notice the troll's apparent discomfort as it recoils from the radiant heat. Ice trolls are known to be vulnerable to fire, and the flames you now wield give you a distinct advantage. The troll emits a deep, guttural growl, its eyes narrowing in response to the fiery torment.`
+    paragraph1 = `With the torch held high, its flames casting long, wavering shadows across the cavern's walls, you keep the menacing ice troll at bay. Its guttural growls continue, echoing through the cavern, as it backs away, its discomfort intensifying in the presence of fire.<br><br>As you cautiously survey your surroundings, searching for a means of escape from this dire confrontation, your eyes lock onto a narrow opening in the cave's wall. It's just large enough for a person to squeeze through but far too small for the hulking troll to follow.<br><br>Beyond the fissure, you catch a glimpse of daylight, a glimmer of hope amid the surrounding darkness. Determination fuels your actions, and you decide to seize this opportunity. The treacherous climb through the hole awaits you, promising escape from the clutches of the ice troll and the perilous depths of the cave. With a deep breath, you step closer to the fissure, preparing to make your ascent and continue your journey through the mountain's heart.`
     buttons = /*HTML*/`
         <button onclick="caveLairHoleExit()">Continue</button>
     `
@@ -308,11 +308,42 @@ function caveLairHoleExit() {
     img = "/img/cave-hole-exit.jpg"
     paragraph1 = `Emerging from the narrow fissure, you find yourself on the other side, the chilly mountain air kissing your skin. Before you, the breathtaking vista of the summit unfolds. The peak of Mount Mournstone rises majestically against the backdrop of the roiling storm clouds that churn below, casting an awe-inspiring and ominous presence.<br><br>With every step forward, you draw closer to your ultimate destination, where the enigmatic Lady of the Mountain is said to dwell. The journey through the treacherous cave and the encounter with the ice troll now stand as trials surmounted, marking your resilience and determination.<br><br>As you stand on the precipice, your heart surges with a mix of anticipation and uncertainty. The Lady of the Mountain awaits, her mysteries and challenges hidden within the storm-shrouded heights. Your quest is soon over, and the summit holds the key to the answers you seek.`
     buttons = /*HTML*/`
-        <button onclick="">Continue</button>
+        <button onclick="nearingSummit()">Continue</button>
     `
      updateScreen()
 }
 // CHAPTER II END /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// CHAPTER II END
 
 // EPILOGUE /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// EPILOGUE
+function nearingSummit() {
+    header = "-THE SUMMIT-"
+    img = "/img/near-summit.jpg"
+    paragraph1 = `As your journey draws to its culmination, you stand upon the summit of Mount Mournstone, taking in the panoramic view of the world below. You reflection upon choices made, revealing the essence of your character.<br><br>You accepted the barkeep's heartfelt plea for help, a testament to your compassion. When duty called, you heeded it, offering your aid to a desperate father.<br><br>Approaching the glowing orb nestled within the tree trunk, you claimed it for yourself, revealing a curiosity and thirst for the unknown. This choice has marked you as an adventurer at heart, willing to seize opportunities that others might shun.<br><br>In the face of adversity, you never flinched. Even when a hungry wolf threatened your path, you confronted it head-on, displaying unwavering resolve and a fierce determination to survive.`
+    buttons = /*HTML*/`
+        <button onclick="nearingSummit2()">Continue</button>
+    `
+     updateScreen()
+}
+function nearingSummit2() {
+    paragraph1 = `Trusting a stranger in the woods, you showcased a willingness to see the good in people, believing in the power of cooperation amidst the unknown.<br><br>You journeyed onward, unyielding even when the very walls surrounding you crumbled under the quake's violent assault. This resilience tells of a spirit that refuses to bow to adversity, no matter how insurmountable it may seem.<br><br>Finally, your unwavering refusal to shed the blood of those at your mercy, be they man or monster, shines a light on your humanity. You've demonstrated that beneath the mantle of a warrior lies a heart that values life and mercy above all else.<br><br>As you stand at the peak, the world stretches out below, and the Lady of the Mountain awaits.<br><br>Every choice you've made has forged you into one of courage, curiosity, and compassion. Now, as you embark on the final leg of your journey, your fate awaits.`
+    buttons = /*HTML*/`
+        <button onclick="theSummit()">Continue</button>
+    `
+     updateScreen()
+}
+function theSummit() {
+    img = "/img/summit.jpg"
+    paragraph1 = `As you finally reach the summit of Mount Mournstone, your breaths come out in quick bursts, and your heart races with anticipation. You stand at the culmination of your arduous journey, expecting to find the Lady of the Mountain awaiting your arrival.<br><br>Yet, there is nothing but silence. The wind whispers through your hair, and the world stretches out before you, revealing the vast expanse of mountains and the boundless ocean beyond. Birds soar freely overhead, their calls filling the air.<br><br>As you stand there, breathing in the crisp mountain air, you feel a deep connection with yourself and the choices you made throughout your journey. The obstacles you faced, the people you encountered, and the challenges you overcame have all contributed to your growth.<br><br>You realize that sometimes, the absence of what we seek reveals something more profound.<br><br>It's a moment of clarity, a recognition that the path you've traveled has led you to a deeper understanding of who you are and what truly matters.`
+    buttons = /*HTML*/`
+        <button onclick="theEnd()">TURN BACK</button>
+    `
+     updateScreen()
+}
+function theEnd() {
+    header = "-THE END-"
+    img = "/img/startscreen.jpg"
+    paragraph1 = `THANKS FOR PLAYING!<br><br>-John-`
+    buttons = ""
+     updateScreen()
+}
 // EPILOGUE END /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// EPILOGUE END
