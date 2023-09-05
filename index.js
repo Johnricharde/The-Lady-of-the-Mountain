@@ -27,10 +27,9 @@ updateScreen()
 
 
 
-// PROLOGUE ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| PROLOGUE //
-
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+// CHAPTER I ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER I //
 introduction()
-
 function introduction() {
     header = "-TALES OF VARGEN-";
     img = "/img/startscreen.jpg";
@@ -48,9 +47,8 @@ function enterVillage() {
     paragraph2 = ``
     buttons = /*HTML*/`
         <button onclick="chooseTavern()">Visit the Tavern</button><br>
-        <button>Visit the General Store</button><br>
-        <button>Visit the Village Elder</button>
-        <button>Turn back</button>
+        <button onclick="chooseStore()">Visit the General Store</button><br>
+        <button onclick="chooseElder()">Visit the Village Elder</button>
     `
     updateScreen()
 }
@@ -61,14 +59,10 @@ function chooseTavern() {
     img = "/img/tavern.jpg"
     paragraph1 = `The tavern's sturdy oak door swings open, revealing a warm and welcoming interior.<br><br>The atmosphere inside Frostholm Lodge is cozy, with a handful of patrons scattered at wooden tables, engaged in quiet conversations or enjoying their meals. The hearth crackles merrily, casting a comforting warmth across the room.`
     buttons = /*HTML*/`
-    <button onclick="barkeep()">Speak to the barkeep</button><br>
-    <button>Accept a bard's riddle</button><br>
-    <button>Join a dice game</button>
+    <button onclick="barkeep()">Speak to the barkeep</button>
     `
     updateScreen()
 }
-
-// BARKEEP
 function barkeep() {
     header = "-BARKEEPER-"
     img = "/img/tavern-barkeep.jpg"
@@ -104,7 +98,104 @@ function barkeepAcceptQuest() {
     `
      updateScreen()
     }
+// GENERAL STORE ................................. GENERAL STORE
+function chooseStore() {
+    header = "-GENERAL STORE-"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick="shopkeep()"></button>
+    `
+    updateScreen()
+}
+function shopkeep() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+function shopkeepAboutLady() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+function shopkeepSeekAdvice() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+function shopkeepAcceptQuest() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+// ELDERS HOUSE ................................... ELDERS HOUSE
+function chooseElder() {
+    header = "-ELDERS HOUSE-"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick="elder()"></button>
+    `
+    updateScreen()
+}
+function elder() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+function elderAboutLady() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+function elderSeekAdvice() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+function elderAcceptQuest() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
 
+
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+// CHAPTER II ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER II //
 function leaveBrus() {
     header = "-THE PATH AHEAD-"
     img = "/img/brus-departure.jpg"
@@ -115,11 +206,8 @@ function leaveBrus() {
         <button>Follow the High Ridge</button>
         <button>Turn back</button>
     `
-     updateScreen()
+    updateScreen()
 }
-
-// CHAPTER I ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER I //
-
 // FOREST PATH ..................................... FOREST PATH
 function chooseForestPath() {
     header = "-GLOWING TREE TRUNK-"
@@ -230,6 +318,70 @@ function runestonesAboutLady() {
     `
      updateScreen()
 }
+// RIDGE PATH ....................................... RIDGE PATH
+function chooseRidgePath() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+
+function campRidge() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+function campRidgeMorning() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+// RIVER PATH ....................................... RIVER PATH
+function chooseRiverPath() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+
+function campRiver() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+function campRiverMorning() {
+    header = "--"
+    img = "/img/.jpg"
+    paragraph1 = ``
+    buttons = /*HTML*/`
+    <button onclick=""></button>
+    `
+    updateScreen()
+}
+
+
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+// CHAPTER III ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER III //
 function midPoint() {
     header = "-UNDER THE SUMMIT-"
     img = "/img/mid-point.jpg"
@@ -241,10 +393,6 @@ function midPoint() {
     `
      updateScreen()
 }
-
-// CHAPTER II |||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER II//
-
-// ICE CAVE ........................................... ICE CAVE
 function chooseCave() {
     header = "-ICE CAVE ENTRANCE-"
     img = "/img/cave-entrance.jpg"
@@ -264,8 +412,6 @@ function caveJunction() {
     `
      updateScreen()
 }
-
-// ICE CAVE LEDGE
 function followTheLedge() {
     header = "-ICE CAVE TUNNEL-"
     img = "/img/cave-tunnel.jpg"
@@ -326,6 +472,10 @@ function caveHoleExit() {
      updateScreen()
 }
 
+
+
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // EPILOGUE ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| EPILOGUE //
 function nearSummit() {
     header = "-THE SUMMIT-"
