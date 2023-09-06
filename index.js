@@ -36,15 +36,26 @@ function introduction() {
     paragraph1 = `<h3>In the realm of Vargen,</h3>`;
     paragraph2 = `where the echoes of legends intertwine with<br>the whispers of untold secrets,<br>your journey begins...<br><br>The frigid winds of the Northlands carry tales of the Lady of the Mountain, a mysterious hag with the power to grant any wish. She is revered and feared, a source of both hope and dread among the people of these lands.<br><br>An urgent need burns in your heart to seek her out. Perhaps it's a desperate plea for a wish that could change your life, or a quest for answers that have eluded you for too long.<br><br>One thing is certain - the journey to the summit of Mount Mournstone, where the Lady of the Mountain is rumored to dwell, is perilous and shrouded in mystery.<br><br>Few who have ventured there have returned, and those who do are forever changed by the trials they endured...`;
     buttons = /*HTML*/`
-    <button onclick="enterVillage()">BEGIN</button>
+    <button onclick="villageArrival()">BEGIN</button>
     `
     updateScreen()
 }
-function enterVillage() {
+function villageArrival() {
     header = "-BRUS VILLAGE-"
     img = "/img/brus.jpg"
     paragraph1 = `As you enter the village of Brus at the foot of Mount Mournstone, you are greeted by a quaint and rustic settlement.<br><br>Timbered cottages with thatched roofs line the cobblestone streets, their windows adorned with flickering candlelight against the encroaching gloom. The air is filled with the scent of burning hearths and the distant murmur of hushed conversations.<br><br>Three options beckon before you:`
-    paragraph2 = ``
+    paragraph2 = `YOU CHOOSE TO...`
+    buttons = /*HTML*/`
+        <button onclick="chooseTavern()">Visit the Tavern</button><br>
+        <button onclick="chooseStore()">Visit the General Store</button><br>
+        <button onclick="chooseElder()">Visit the Village Elder</button>
+    `
+    updateScreen()
+}
+function village() {
+    header = "-BRUS VILLAGE-"
+    img = "/img/brus.jpg"
+    paragraph1 = `There's still time to go somewhere else.`
     buttons = /*HTML*/`
         <button onclick="chooseTavern()">Visit the Tavern</button><br>
         <button onclick="chooseStore()">Visit the General Store</button><br>
