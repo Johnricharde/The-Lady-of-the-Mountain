@@ -24,8 +24,8 @@ updateScreen()
     }
 
 // CONTROLLER ///////////////////////////////////
-let playerWeapon = "";
-let playerArmor = "";
+let playerWeapon = "Sword";
+let playerArmor = "Heavy Armor";
 let playerTrinket = "";
 
 
@@ -147,7 +147,6 @@ function day1() {
     `;
     updateScreen()
 }
-day1()
 function dirtRoad1() {
     header = "-ON THE ROAD-";
     img = "/img/dirt-road2.jpg";
@@ -157,37 +156,41 @@ function dirtRoad1() {
     updateScreen()
 
 }
+dirtRoad1()
+// BANDIT ENCOUNTER /////////////////////////////////
+// Cloak of Shadows branch //
 function dirtRoad2() {
-    console.log(playerTrinket)
     if (playerTrinket == "Cloak of Shadows") {
         header = "-BANDIT AMBUSH-";
         img = "/img/bandit-ambush-unsurprised.jpg";
         paragraph1 = `You spot bandits ahead. Seems their lookout didn't spot you due to your cloak of shadows`;
         buttons = `
-        <button onclick="dirtPathBandits()">Approach</button>
-        <button onclick="">Sneak around</button>
-        `;
+        <button onclick="bandits()">Approach</button>
+        <button onclick="">Sneak up</button>
+        <button onclick="">Avoid them</button>`;
         updateScreen()
     } else if (playerTrinket != "Cloak of Shadows") {
         header = "-BANDITS AHEAD-";
         img = "/img/bandit-ambush-surprised.jpg";
         paragraph1 = `Bandits appear out from behind the trees. Their lookout must've spotted you. They approach...`;
-        buttons = `<button onclick="dirtPathBandits()">Continue</button>
+        buttons = `<button onclick="bandits()">Continue</button>
         `;
         updateScreen()
-    } else {console.log('Error, dirtRoad2 function')}
+    } else {console.log('Error, dirtRoad2() function')}
 }
-function dirtPathBandits() {
+// Amulet of Tongues branch //
+// Helmet of Illumination branch //
+function bandits() {
     if (playerTrinket == "Amulet of Tongues") {
         header = "-BANDITS-";
         img = "/img/bandit-ambush-surprised.jpg";
-        paragraph1 = `Bandits demand your money but their dog speaks up begging for your help`;
-        buttons = `<button onclick="">Continue</button>`; 
+        paragraph1 = `The bandits demand your money but their dog speaks up begging for your help`;
+        buttons = `<button onclick="banditsDog()">Continue</button>`; 
     } else if (playerTrinket != "Amulet of Tongues") {
         if (playerTrinket == "Helmet of Illumination") {
             header = "-BANDITS-";
             img = "/img/bandit-ambush-surprised.jpg";
-            paragraph1 = `Bandits demand your money`;
+            paragraph1 = `The bandits demand your money`;
             buttons = `
             <button onclick="">Use Helmet of Illumination</button>
             <button onclick="">Give gold</button>
@@ -195,15 +198,66 @@ function dirtPathBandits() {
         } else if (playerTrinket != "Helmet of Illumination") {
             header = "-BANDITS-";
             img = "/img/bandit-ambush-surprised.jpg";
-            paragraph1 = `Bandits demand your money`;
+            paragraph1 = `Bandits demand your money, does not have helmet`;
             buttons = `
-            <button onclick="">Fight</button>
+            <button onclick="banditsFight()">Fight</button>
             <button onclick="">Give gold</button>
             <button onclick="">Run away</button>`;
-        }
+        } else {console.log('Error, bandits() function')}
     }
     updateScreen()
 }
+// BANDITS FIGHT ////////////////////////////////////
+function banditsFight() {
+    if (playerWeapon == "Sword") {
+        if (playerArmor == "Heavy Armor") {
+            header = "-BANDITS-";
+            img = "/img/bandit-ambush-surprised.jpg";
+            paragraph1 = `you draw your sword. the dog attacks one bandit. another runs away. the other two charge at you. you fend one off and the other one lands a blow. luckily it bounces off your heavy breastplate, leaving you unharmed`;
+            buttons = `
+            <button onclick="">Continue</button>`;
+        } else if (playerArmor != "Heavy Armor") {
+            header = "-BANDITS-";
+            img = "/img/bandit-ambush-surprised.jpg";
+            paragraph1 = `you draw your sword. the dog attacks one bandit. another runs away. the other two charge at you. you fend one off but the other lands a viscious blow.`;
+            buttons = `
+            <button onclick="">Continue</button>`;
+        }
+    } else if (playerWeapon == "Bow") {
+        header = "-BANDITS-";
+        img = "/img/bandit-ambush-surprised.jpg";
+        paragraph1 = `you draw your bow. the dog attacks one bandit. another runs away. the other two charge at you. you manage to shoot one but the other lands a viscious blow..`;
+        buttons = `
+        <button onclick="">Continue</button>`;
+    } else if (playerWeapon == "Magic") {
+        header = "-BANDITS-";
+        img = "/img/bandit-ambush-surprised.jpg";
+        paragraph1 = `you draw your staff. the dog attacks one bandit. another runs away. the other two charge at you. you manage to toss a firebolt at one bandit causing the other bandit to flee aswell`;
+        buttons = `
+        <button onclick="">Continue</button>`;
+    } else {console.log("Error, banditsFight() function")}
+    updateScreen()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // CHAPTER II ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER II //
 function leaveBrus() {
@@ -306,9 +360,6 @@ function campRiverMorning() {
     updateScreen()
 }
 
-
-
-
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // CHAPTER III ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER III //
 function midPoint() {
@@ -331,9 +382,6 @@ function chooseCave() {
     `
      updateScreen()
 }
-
-
-
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // EPILOGUE ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| EPILOGUE //
