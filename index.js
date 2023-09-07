@@ -66,7 +66,7 @@ function selectedOneOfEach() {
     }
 }
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
-// CHAPTER I ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER I //
+// INTRODUCTION ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| INTRODUCTION //
 // introduction()
 function introduction() {
     header = "-TALES OF VARGEN-";
@@ -78,7 +78,6 @@ function introduction() {
     `
     updateScreen()
 }
-yourPast()
 function yourPast() {
     header = "-YOUR PAST-";
     img = "/img/past.jpg";
@@ -103,14 +102,14 @@ function yourPast() {
         </label><br><br>
 
     And for the times ahead, you brougth your...<br>
-        <label class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Amulet of Foresight')">
-            <input type="radio" name="trinket" value="Amulet of Foresight">Amulet of Foresight
+        <label class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Helmet of Illumination')">
+            <input type="radio" name="trinket" value="Helmet of Illumination">Helmet of Illumination
         </label>
         <label class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Cloak of Shadows')">
             <input type="radio" name="trinket" value="Cloak of Shadows">Cloak of Shadows
         </label>
-        <label class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Orb of Illumination')">
-            <input type="radio" name="trinket" value="Orb of Illumination">Orb of Illumination
+        <label class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Amulet of Tongues')">
+            <input type="radio" name="trinket" value="Amulet of Tongues">Amulet of Tongues
         </label>
     `;
 
@@ -124,27 +123,87 @@ function yourFuture() {
     img = "/img/future.jpg";
     paragraph1 = `
     What drives you forward is your lust for... <br>
-        <button>Glory and Adventure</button>
-        <button>Wisdom and Knowledge</button>
-        <button>Power and Wealth</button><br><br>
-        You seek the lady of the mountain so that you may... <br>
-        <button title="">Seek her help</button>
-        <button title="">Slay her</button>`;
+        <button>Adventure and Glory</button>
+        <button>Fame and Fortune</button>
+        <button>Power and Wisdom</button><br><br>
+        You must confront the lady in order to seek her... <br>
+        <button title="">Help</button>
+        <button title="">Treasure</button>
+        <button title="">Death</button>`;
     paragraph2 = ``
-    buttons = `<button onclick="leavingHome()">Continue</button>
+    buttons = `<button onclick="day1()">Continue</button>
     `;
     updateScreen()
 }
-function leavingHome() {
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------
+// CHAPTER I ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER I //
+function day1() {
     header = "-LEAVING HOME-";
     img = "/img/dirt-road.jpg";
-    paragraph1 = `You begin your journey from home to seek out the lady`;
-    paragraph2 = ``
-    buttons = `<button onclick="">Continue</button>
+    paragraph1 = `You depart from the village of Hjort and begin your journey from home to seek out the lady.<br><br>
+    Your reasons for doing so are yours and yours alone.<br><br>Next stop, the village of Brus.`;
+    paragraph2 = `<h4>YOU CHOOSE TO...</h4>`
+    buttons = `<button onclick="dirtRoad1()">Continue</button>
     `;
     updateScreen()
 }
+day1()
+function dirtRoad1() {
+    header = "-ON THE ROAD-";
+    img = "/img/dirt-road2.jpg";
+    paragraph1 = `You continue on your journey. Suddenly...`;
+    buttons = `<button onclick="dirtRoad2()">Continue</button>
+    `;
+    updateScreen()
 
+}
+function dirtRoad2() {
+    console.log(playerTrinket)
+    if (playerTrinket == "Cloak of Shadows") {
+        header = "-BANDIT AMBUSH-";
+        img = "/img/bandit-ambush-unsurprised.jpg";
+        paragraph1 = `You spot bandits ahead. Seems their lookout didn't spot you due to your cloak of shadows`;
+        buttons = `
+        <button onclick="dirtPathBandits()">Approach</button>
+        <button onclick="">Sneak around</button>
+        `;
+        updateScreen()
+    } else if (playerTrinket != "Cloak of Shadows") {
+        header = "-BANDITS AHEAD-";
+        img = "/img/bandit-ambush-surprised.jpg";
+        paragraph1 = `Bandits appear out from behind the trees. Their lookout must've spotted you. They approach...`;
+        buttons = `<button onclick="dirtPathBandits()">Continue</button>
+        `;
+        updateScreen()
+    } else {console.log('Error, dirtRoad2 function')}
+}
+function dirtPathBandits() {
+    if (playerTrinket == "Amulet of Tongues") {
+        header = "-BANDITS-";
+        img = "/img/bandit-ambush-surprised.jpg";
+        paragraph1 = `Bandits demand your money but their dog speaks up begging for your help`;
+        buttons = `<button onclick="">Continue</button>`; 
+    } else if (playerTrinket != "Amulet of Tongues") {
+        if (playerTrinket == "Helmet of Illumination") {
+            header = "-BANDITS-";
+            img = "/img/bandit-ambush-surprised.jpg";
+            paragraph1 = `Bandits demand your money`;
+            buttons = `
+            <button onclick="">Use Helmet of Illumination</button>
+            <button onclick="">Give gold</button>
+            <button onclick="">Run away</button>`;
+        } else if (playerTrinket != "Helmet of Illumination") {
+            header = "-BANDITS-";
+            img = "/img/bandit-ambush-surprised.jpg";
+            paragraph1 = `Bandits demand your money`;
+            buttons = `
+            <button onclick="">Fight</button>
+            <button onclick="">Give gold</button>
+            <button onclick="">Run away</button>`;
+        }
+    }
+    updateScreen()
+}
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // CHAPTER II ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER II //
 function leaveBrus() {
