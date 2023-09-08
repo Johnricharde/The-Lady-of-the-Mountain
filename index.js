@@ -187,7 +187,7 @@ function banditsDog2() {
     img = "/img/bandit-ambush-surprised.jpg";
     paragraph1 = `Bandits demand your money`;
     buttons = /*HTML*/`
-    <button onclick="banditsTricked()">Mention bandit chief</button>
+    <button onclick="banditsTricked()">Trick bandits (Amulet of Tongues)</button>
     <button onclick="banditsFight()">Fight</button>
     <button onclick="banditsGiveGold()">Give gold</button>
     <button onclick="banditsRunAway()">Run away</button>`;
