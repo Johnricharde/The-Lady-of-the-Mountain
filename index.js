@@ -26,48 +26,13 @@ updateScreen()
 // CONTROLLER ///////////////////////////////////
 let playerWeapon = "Magic";
 let playerArmor = "Light Armor";
-let playerTrinket = "";
+let playerTrinket = "Helmet of Illumination";
 
+let FreedDog = false;
 
-function selectWeapon(weapon) {
-    playerWeapon = weapon;
-    updateRadioStyles();
-}
-function selectArmor(armor) {
-    playerArmor = armor;
-    updateRadioStyles();
-}
-function selectTrinket(trinket) {
-    playerTrinket = trinket;
-    updateRadioStyles();
-}
-
-function updateRadioStyles() {
-    const labels = document.querySelectorAll('.custom-radio-button-label');
-    labels.forEach(label => {
-        const input = label.querySelector('input');
-        if (input.name === 'weapon' && input.value === playerWeapon) {
-            label.classList.add('selected');
-        } else if (input.name === 'armor' && input.value === playerArmor) {
-            label.classList.add('selected');
-        } else if (input.name === 'trinket' && input.value === playerTrinket) {
-            label.classList.add('selected');
-        } else {
-            label.classList.remove('selected');
-        }
-    });
-}
-
-function selectedOneOfEach() {
-    if (playerWeapon !== "" && playerArmor !== "" && playerTrinket !== "") {
-        yourFuture()
-    } else {
-        alert("Please select one of each.");
-    }
-}
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // INTRODUCTION ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| INTRODUCTION //
-// introduction()
+introduction()
 function introduction() {
     header = "-TALES OF VARGEN-";
     img = "/img/startscreen.jpg";
@@ -156,9 +121,7 @@ function dirtRoad1() {
     updateScreen()
 
 }
-dirtRoad1()
 // BANDIT ENCOUNTER /////////////////////////////////
-// Cloak of Shadows branch //
 function dirtRoad2() {
     if (playerTrinket == "Cloak of Shadows") {
         header = "-BANDIT AMBUSH-";
@@ -166,20 +129,25 @@ function dirtRoad2() {
         paragraph1 = `You spot bandits ahead. Seems their lookout didn't spot you due to your cloak of shadows`;
         buttons = `
         <button onclick="bandits()">Approach</button>
-        <button onclick="">Sneak up</button>
-        <button onclick="">Avoid them</button>`;
-        updateScreen()
+        <button onclick="banditsSneakUp()">Sneak up</button>
+        <button onclick="banditsAvoid()">Avoid them</button>`;
     } else if (playerTrinket != "Cloak of Shadows") {
         header = "-BANDITS AHEAD-";
         img = "/img/bandit-ambush-surprised.jpg";
         paragraph1 = `Bandits appear out from behind the trees. Their lookout must've spotted you. They approach...`;
         buttons = `<button onclick="bandits()">Continue</button>
         `;
-        updateScreen()
     } else {console.log('Error, dirtRoad2() function')}
+    updateScreen()
 }
-// Amulet of Tongues branch //
-// Helmet of Illumination branch //
+function banditsSneakUp() {
+    header = "-SNEAK UP ON BANDITS-";
+    img = "/img/bandit-ambush-unsurprised.jpg";
+    paragraph1 = `you sneak up on the bandits. you ready your ${playerWeapon}. you attack them and already two are down, their dog retaliates against the third bandit and the fourth on runs away in the panic`;
+    buttons = `<button onclick="banditConclusion()">Continue</button>`;
+    FreedDog = true;
+    updateScreen()
+}
 function bandits() {
     if (playerTrinket == "Amulet of Tongues") {
         header = "-BANDITS-";
@@ -192,9 +160,9 @@ function bandits() {
             img = "/img/bandit-ambush-surprised.jpg";
             paragraph1 = `The bandits demand your money`;
             buttons = `
-            <button onclick="">Use Helmet of Illumination</button>
-            <button onclick="">Give gold</button>
-            <button onclick="">Run away</button>`;
+            <button onclick="banditsUseHelmet()">Fight (Helmet of Illumination)</button>
+            <button onclick="banditsGiveGold()">Give gold</button>
+            <button onclick="banditsRunAway()">Run away</button>`;
         } else if (playerTrinket != "Helmet of Illumination") {
             header = "-BANDITS-";
             img = "/img/bandit-ambush-surprised.jpg";
@@ -207,7 +175,47 @@ function bandits() {
     }
     updateScreen()
 }
-// BANDITS CONCLUSION ////////////////////////////////
+function banditsAvoid() {
+    header = "-AVOID THE BANDITS-";
+    img = "/img/bandit-ambush-unsurprised.jpg";
+    paragraph1 = `The bandits outnumber you. you decide its not work the risk and circle around the bandits so you may continue on your journey.`;
+    buttons = `<button onclick="banditConclusion()">Continue</button>`;
+    updateScreen()
+}
+function banditsDog() {
+    header = "-BANDITS DOG-";
+    img = "/img/dog.jpg";
+    paragraph1 = `The dog begs you to help him escape, advicing you to mention the name of the bandit chief`;
+    buttons = `<button onclick="banditsDog2()">Continue</button>`; 
+    updateScreen()
+}
+function banditsDog2() {
+    header = "-BANDITS-";
+    img = "/img/bandit-ambush-surprised.jpg";
+    paragraph1 = `Bandits demand your money`;
+    buttons = `
+    <button onclick="banditsTricked()">Mention bandit chief</button>
+    <button onclick="banditsFight()">Fight</button>
+    <button onclick="banditsGiveGold()">Give gold</button>
+    <button onclick="banditsRunAway()">Run away</button>`;
+    updateScreen()
+}
+function banditsTricked() {
+    header = "-BANDITS-";
+    img = "/img/bandit-ambush-surprised.jpg";
+    paragraph1 = `You convince the bandits that your here on the bandit chief behalf in order to take the dog`;
+    buttons = `<button onclick="banditConclusion()">Continue</button>`;
+    FreedDog = true;
+    updateScreen()
+}
+function banditsUseHelmet() {
+    header = "-BANDITS-";
+    img = "/img/bandits-blinded-by-light.jpg";
+    paragraph1 = `the helmets light blinds the bandits, leaving you to make short work of them. the dog lashes out at its master as soon as he drops the leash`;
+    buttons = `<button onclick="banditConclusion()">Continue</button>`;
+    FreedDog = true;
+    updateScreen()
+}
 function banditsFight() {
     if (playerWeapon == "Sword") {
         if (playerArmor == "Heavy Armor") {
@@ -215,13 +223,13 @@ function banditsFight() {
             img = "/img/bandit-ambush-surprised.jpg";
             paragraph1 = `you draw your sword. the dog attacks one bandit. another runs away. the other two charge at you. you fend one off and the other one lands a blow. luckily it bounces off your heavy breastplate, leaving you unharmed`;
             buttons = `
-            <button onclick="">Continue</button>`;
+            <button onclick="banditConclusion()">Continue</button>`;
         } else if (playerArmor != "Heavy Armor") {
             header = "-BANDITS-";
             img = "/img/bandit-ambush-surprised.jpg";
             paragraph1 = `you draw your sword. the dog attacks one bandit. another runs away. the other two charge at you. you fend one off but the other lands a viscious blow.`;
             buttons = `
-            <button onclick="">Continue</button>`;
+            <button onclick="banditConclusion()">Continue</button>`;
         }
     } else if (playerWeapon == "Longbow") {
         if (playerArmor == "Heavy Armor") {
@@ -229,13 +237,13 @@ function banditsFight() {
             img = "/img/bandit-ambush-surprised.jpg";
             paragraph1 = `you draw your bow. the dog attacks one bandit. another runs away. the other two charge at you. you manage to shoot one but the other lands a blow. Luckily it bounces of your heavy breastplate`;
             buttons = `
-            <button onclick="">Continue</button>`;
+            <button onclick="banditConclusion()">Continue</button>`;
         } else if (playerArmor != "Heavy Armor") {
             header = "-BANDITS-";
             img = "/img/bandit-ambush-surprised.jpg";
             paragraph1 = `you draw your bow. the dog attacks one bandit. another runs away. the other two charge at you. you manage to shoot one but the other lands a viscious blow..`;
             buttons = `
-            <button onclick="">Continue</button>`;
+            <button onclick="banditConclusion()">Continue</button>`;
         }
     } else if (playerWeapon == "Magic") {
         if (playerArmor == "Heavy Armor") {
@@ -243,42 +251,58 @@ function banditsFight() {
             img = "/img/bandit-ambush-surprised.jpg";
             paragraph1 = `you draw your staff. the dog attacks one bandit. another runs away. the other two charge at you. you manage to throw a firebolt at one but the other lands a blow. luckily it bounces of your heavy breastplate`;
             buttons = `
-            <button onclick="">Continue</button>`;
+            <button onclick="banditConclusion()">Continue</button>`;
         } else if (playerArmor != "Heavy Armor") {
             header = "-BANDITS-";
             img = "/img/bandit-ambush-surprised.jpg";
             paragraph1 = `you draw your staff. the dog attacks one bandit. another runs away. the other two charge at you. you manage to throw a firebolt at one but the other lands a viscious blow..`;
             buttons = `
-            <button onclick="">Continue</button>`;
+            <button onclick="banditConclusion()">Continue</button>`;
         }
     } else {console.log("Error, banditsFight() function")};
+    FreedDog = true;
     updateScreen()
 }
-
-
-
 function banditsRunAway() {
     header = "-BANDITS-";
     img = "/img/bandit-ambush-surprised.jpg";
     paragraph1 = `Your run away from the bandits`;
     buttons = `
-    <button onclick="">Continue</button>`;
+    <button onclick="banditConclusion()">Continue</button>`;
     updateScreen()
 }
 function banditsGiveGold() {
     header = "-BANDITS-";
     img = "/img/bandit-ambush-surprised.jpg";
     paragraph1 = `You give the bandits all your gold`;
-    buttons = `<button onclick="">Continue</button>`;
+    buttons = `<button onclick="banditConclusion()">Continue</button>`;
     updateScreen()
 }
+function banditConclusion() {
+    header = "-BANDITS-";
+    img = "/img/dirt-road.jpg";
+    paragraph1 = `you continue on your journey after having dealt with the bandits, many more trials ahead.`;
+    buttons = `<button onclick="dogGreetsYou()">Continue</button>`;
+    updateScreen()
+}
+// BANDIT ENCOUNTER OVER ////////////////////////////
 
-
-
-
-
-
-
+function dogGreetsYou() {
+    if (FreedDog == true) {
+        if (playerTrinket == "Amulet of Tongues") {
+            header = "-DOG-";
+            img = "/img/dog.jpg";
+            paragraph1 = `the dog says thank you and follows you`;
+            buttons = `<button onclick="">Continue</button>`; 
+        } else if (playerTrinket != "Amulet of Tongues") {
+            header = "-DOG-";
+            img = "/img/dog.jpg";
+            paragraph1 = `the dog follows you`;
+            buttons = `<button onclick="">Continue</button>`; 
+        } else {console.log("Error, dogGreetsYou() function")}
+    }
+    updateScreen()
+}
 
 
 
@@ -466,4 +490,48 @@ function end() {
     paragraph1 = `THANKS FOR PLAYING!<br><br>-John-`
     buttons = ""
      updateScreen()
+}
+
+
+
+
+
+
+
+
+
+// FUNCTIONS FOR CHARACTER CREATION SCREEN ++++++++++++++++++++++++++++++++++++++++++++ //
+function selectWeapon(weapon) {
+    playerWeapon = weapon;
+    updateRadioStyles();
+}
+function selectArmor(armor) {
+    playerArmor = armor;
+    updateRadioStyles();
+}
+function selectTrinket(trinket) {
+    playerTrinket = trinket;
+    updateRadioStyles();
+}
+function updateRadioStyles() {
+    const labels = document.querySelectorAll('.custom-radio-button-label');
+    labels.forEach(label => {
+        const input = label.querySelector('input');
+        if (input.name === 'weapon' && input.value === playerWeapon) {
+            label.classList.add('selected');
+        } else if (input.name === 'armor' && input.value === playerArmor) {
+            label.classList.add('selected');
+        } else if (input.name === 'trinket' && input.value === playerTrinket) {
+            label.classList.add('selected');
+        } else {
+            label.classList.remove('selected');
+        }
+    });
+}
+function selectedOneOfEach() {
+    if (playerWeapon !== "" && playerArmor !== "" && playerTrinket !== "") {
+        yourFuture()
+    } else {
+        alert("Please select one of each.");
+    }
 }
