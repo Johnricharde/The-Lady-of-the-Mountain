@@ -24,8 +24,8 @@ updateScreen()
     }
 
 // CONTROLLER ///////////////////////////////////
-let playerWeapon = "Sword";
-let playerArmor = "Heavy Armor";
+let playerWeapon = "Magic";
+let playerArmor = "Light Armor";
 let playerTrinket = "";
 
 
@@ -201,13 +201,13 @@ function bandits() {
             paragraph1 = `Bandits demand your money, does not have helmet`;
             buttons = `
             <button onclick="banditsFight()">Fight</button>
-            <button onclick="">Give gold</button>
-            <button onclick="">Run away</button>`;
+            <button onclick="banditsGiveGold()">Give gold</button>
+            <button onclick="banditsRunAway()">Run away</button>`;
         } else {console.log('Error, bandits() function')}
     }
     updateScreen()
 }
-// BANDITS FIGHT ////////////////////////////////////
+// BANDITS CONCLUSION ////////////////////////////////
 function banditsFight() {
     if (playerWeapon == "Sword") {
         if (playerArmor == "Heavy Armor") {
@@ -223,21 +223,72 @@ function banditsFight() {
             buttons = `
             <button onclick="">Continue</button>`;
         }
-    } else if (playerWeapon == "Bow") {
-        header = "-BANDITS-";
-        img = "/img/bandit-ambush-surprised.jpg";
-        paragraph1 = `you draw your bow. the dog attacks one bandit. another runs away. the other two charge at you. you manage to shoot one but the other lands a viscious blow..`;
-        buttons = `
-        <button onclick="">Continue</button>`;
+    } else if (playerWeapon == "Longbow") {
+        if (playerArmor == "Heavy Armor") {
+            header = "-BANDITS-";
+            img = "/img/bandit-ambush-surprised.jpg";
+            paragraph1 = `you draw your bow. the dog attacks one bandit. another runs away. the other two charge at you. you manage to shoot one but the other lands a blow. Luckily it bounces of your heavy breastplate`;
+            buttons = `
+            <button onclick="">Continue</button>`;
+        } else if (playerArmor != "Heavy Armor") {
+            header = "-BANDITS-";
+            img = "/img/bandit-ambush-surprised.jpg";
+            paragraph1 = `you draw your bow. the dog attacks one bandit. another runs away. the other two charge at you. you manage to shoot one but the other lands a viscious blow..`;
+            buttons = `
+            <button onclick="">Continue</button>`;
+        }
     } else if (playerWeapon == "Magic") {
-        header = "-BANDITS-";
-        img = "/img/bandit-ambush-surprised.jpg";
-        paragraph1 = `you draw your staff. the dog attacks one bandit. another runs away. the other two charge at you. you manage to toss a firebolt at one bandit causing the other bandit to flee aswell`;
-        buttons = `
-        <button onclick="">Continue</button>`;
-    } else {console.log("Error, banditsFight() function")}
+        if (playerArmor == "Heavy Armor") {
+            header = "-BANDITS-";
+            img = "/img/bandit-ambush-surprised.jpg";
+            paragraph1 = `you draw your staff. the dog attacks one bandit. another runs away. the other two charge at you. you manage to throw a firebolt at one but the other lands a blow. luckily it bounces of your heavy breastplate`;
+            buttons = `
+            <button onclick="">Continue</button>`;
+        } else if (playerArmor != "Heavy Armor") {
+            header = "-BANDITS-";
+            img = "/img/bandit-ambush-surprised.jpg";
+            paragraph1 = `you draw your staff. the dog attacks one bandit. another runs away. the other two charge at you. you manage to throw a firebolt at one but the other lands a viscious blow..`;
+            buttons = `
+            <button onclick="">Continue</button>`;
+        }
+    } else {console.log("Error, banditsFight() function")};
     updateScreen()
 }
+
+
+
+function banditsRunAway() {
+    header = "-BANDITS-";
+    img = "/img/bandit-ambush-surprised.jpg";
+    paragraph1 = `Your run away from the bandits`;
+    buttons = `
+    <button onclick="">Continue</button>`;
+    updateScreen()
+}
+function banditsGiveGold() {
+    header = "-BANDITS-";
+    img = "/img/bandit-ambush-surprised.jpg";
+    paragraph1 = `You give the bandits all your gold`;
+    buttons = `<button onclick="">Continue</button>`;
+    updateScreen()
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
