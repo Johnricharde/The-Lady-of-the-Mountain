@@ -28,11 +28,11 @@ let playerWeapon = "Magic";
 let playerArmor = "Light Armor";
 let playerTrinket = "Helmet of Illumination";
 
-let FreedDog = false;
+let freedDog = false;
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // INTRODUCTION ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| INTRODUCTION //
-introduction()
+// introduction()
 function introduction() {
     header = "-TALES OF VARGEN-";
     img = "/img/startscreen.jpg";
@@ -137,7 +137,7 @@ function banditsSneakUp() {
     header = "-SNEAK UP ON BANDITS-";
     paragraph1 = `you sneak up on the bandits. you ready your ${playerWeapon}. you attack them and already two are down, their dog retaliates against the third bandit and the fourth on runs away in the panic`;
     buttons = /*HTML*/`<button onclick="banditsConclusion()">Continue</button>`;
-    FreedDog = true;
+    freedDog = true;
     updateScreen()
 }
 function banditsAvoid() {
@@ -196,14 +196,14 @@ function banditsDog2() {
 function banditsTricked() {
     paragraph1 = `You convince the bandits that your here on the bandit chief behalf in order to take the dog`;
     buttons = `<button onclick="banditsConclusion()">Continue</button>`;
-    FreedDog = true;
+    freedDog = true;
     updateScreen()
 }
 function banditsUseHelmet() {
     img = "/img/bandits-blinded-by-light.jpg";
     paragraph1 = `the helmets light blinds the bandits, leaving you to make short work of them. the dog lashes out at its master as soon as he drops the leash`;
     buttons = `<button onclick="banditsConclusion()">Continue</button>`;
-    FreedDog = true;
+    freedDog = true;
     updateScreen()
 }
 function banditsFight() {
@@ -238,7 +238,7 @@ function banditsFight() {
             <button onclick="banditsConclusion()">Continue</button>`;
         }
     } else {banditsConclusion()};
-    FreedDog = true;
+    freedDog = true;
     updateScreen()
 }
 function banditsRunAway() {
@@ -264,7 +264,7 @@ function banditsConclusion() {
 // BANDIT ENCOUNTER OVER ////////////////////////////
 
 function dogGreetsYou() {
-    if (FreedDog == true) {
+    if (freedDog == true) {
         if (playerTrinket == "Amulet of Tongues") {
             header = "-DOG-";
             img = "/img/dog.jpg";
@@ -278,9 +278,60 @@ function dogGreetsYou() {
             buttons = /*HTML*/`
             <button onclick="">Continue</button>`; 
         } else {console.log("Error, dogGreetsYou() function")}
+    } else if (freedDog != true) {
+        followRoadOrThroughForest()
     }
     updateScreen()
 }
+function followRoadOrThroughForest() {
+    header = "-HOW TO PROCEED-";
+    img = "/img/dirt-road.jpg";
+    paragraph1 = `Your encounter with the bandits have led you to consider wheter or not following the road is the best course of action.`;
+    buttons = /*HTML*/`
+    <button onclick="crossroadInn()">Stay on the road</button>
+    <button onclick="">Go through the forest</button>`; 
+    updateScreen()
+}
+// CHOOSE TO FOLLOW THE ROAD ////////////////////////
+function crossroadInn() {
+    header = "-CROSSROAD INN-";
+    img = "/img/crossroad-inn.jpg";
+    paragraph1 = `You come across the famous Crossroad Inn, the intersection between the four towns of:<br><br>HJORT<br>Your home,<br>a humble waypoint towards the city of Grundheim.<br><br>DRUGE<br>A dwarven cesspool,<br>filled with thieves and refugees from Trollhall.<br><br> EGGON<br>A well respected shipwright village,<br>also known for harboring pirates.<br><br> BRUS<br>The birthplace of legends and fools,<br>in the shadow of Mournstone Mountain.<br>And your destination.<br><br>All sorts of people pass through here.`;
+    buttons = /*HTML*/`
+    <button onclick="crossroadInnInterior()">Enter</button>`
+    updateScreen()
+}
+crossroadInn()
+function crossroadInnInterior() {
+    img = "/img/crossroad-inn-interior.jpg";
+    paragraph1 = ``;
+    buttons = /*HTML*/`
+    <button onclick="">Look around</button>
+    <button onclick="">Leave</button>`; 
+    updateScreen()
+}
+
+
+
+// CHOOSE TO GO THROUGH FOREST //////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
