@@ -315,16 +315,23 @@ function crossroadInnInterior() {
     updateScreen()
 }
 function crossroadLookAround() {
-    paragraph1 = `You look around and see:<br><br>The barkeep behind the counter.<br><br>An unamused elf standing guard. She's strong and tall in stature.<br><br>A dwarf with fiery red hair questioning patrons by the bar.<br><br>A man with his back turned to you.<br>He's wearing the iconic green cloak og the Staghelm rangers.<br>The protectors of the roads within the Staghelm domain.`;
+    header = "-CROSSROAD INN-";
+    img = "/img/crossroad-inn-interior.jpg";
+    paragraph1 = `You look around and see:<br><br>The barkeep behind the counter.<br><br>An unamused elf standing guard.<br><br>A dwarf with fiery red hair questioning patrons by the bar.<br><br>A man wearing the iconic green cloak og the Staghelm rangers.`;
     buttons = /*HTML*/`
         <button onclick="crossroadTalkToBarkeep()">Talk to the barkeep</button>
-        <button onclick="crossroadTalToElf()">Talk to the elf</button>
+        <button onclick="linSunblossom()">Talk to the elf</button>
         <button onclick="biffFirebrand()">Talk to the dwarf</button>
-        <button onclick="crossroadTalkToRanger()">Talk to the ranger</button>
+        <button onclick="rangerIngvar()">Talk to the ranger</button>
         <button onclick="crossroadTalkToShipwright()">Talk to the shipwright</button>
         <button onclick="">Leave</button>`; 
     updateScreen()
 }
+
+
+
+
+
 crossroadInnInterior()
 function crossroadTalkToBarkeep() {
     header = "-BARKEEP-";
@@ -334,59 +341,80 @@ function crossroadTalkToBarkeep() {
         <button onclick=""></button>`
     updateScreen()
 }
-function crossroadTalToElf() {
-    header = "-ELF GUARD-";
+// LIN SUNBLOSSOM ..............//
+function linSunblossom() {
+    header = "-LIN SUNBLOSSOM-";
     img = "/img/crossroad-elf.jpg";
-    paragraph1 = ``;
+    paragraph1 = `Looking utterly unamused,<br>she does not move as you approach.<br><br>"Bars over there."<br><br>She points towards the bar using her chin. She doesn't seem interested in talking with you.`;
     buttons = /*HTML*/`
-        <button onclick=""></button>`
+        <button onclick="crossroadLookAround()">leave</button>`
     updateScreen()
 }
-
-
-
-
+// BIFF FIREBRAND ............. //
 function biffFirebrand() {
     header = "-BIFF FIREBRAND-";
     img = "/img/crossroad-dwarf.jpg";
     paragraph1 = `"Ye there!"<br><br>The red haired dwarf bursts out before you have time to react.<br><br>"Ye haven't by any chance seen a red haired dwarf lately have ye? About yay tall, dumb as a rock and ugly as a troll?"<br><br>He illustrates by bringing his hand up to about his own height`;
     buttons = /*HTML*/`
         <button onclick="biffFirebrandPoint()">Point at him</button>
-        <button onclick="biffFirebrandNo()">No</button>`
+        <button onclick="biffFirebrandNo()">Say you haven't</button>`
     updateScreen()
 }
 function biffFirebrandPoint() {
-    paragraph1 = `The dwarf seems confused for a moment before it suddenly dawns on him and his face sours.<br><br>"Shove that finger BACK up yer ARSE where it BELONGS ya STINKIN TROGLODYTE!"<br><br>The dwarf takes a moment to collect himself.<br><br>"I'm looking fer me little brother... have heart will ye?<br>No need fer insulting a dwarfs good looks."`;
+    paragraph1 = `The dwarf seems confused for a moment, before it suddenly dawns on him and his face sours.<br><br>"Shove that finger BACK up yer ARSE where it BELONGS ya STINKIN TROGLODYTE!"<br><br>The dwarf takes a moment to collect himself.<br><br>"I'm looking fer me little brother... have heart will ye?<br>No need fer insulting a dwarfs good looks."`;
     buttons = /*HTML*/`
         <button onclick="biffFirebrandAskAboutBrother()">Continue</button>`
     updateScreen()
 }
 function biffFirebrandNo() {
-    paragraph1 = `"Well if ye see him ye tell him this fer me:<br><br>GET yer ARSE back over to DRUGE or we're doin the GOD'S DAMNED SIEGE without ye, ya damn PIECE O' LOAF!"<br><br>The dwarf takes a moment to collect himself.<br><br>"Ye got that?"`;
+    paragraph1 = `"Well if ye do see him, ye tell him this fer me:<br><br>GET yer ARSE back over to DRUGE or we're doin the GOD'S DAMNED SIEGE without ye, ya damn PIECE O' LOAF!"<br><br>The dwarf takes a moment to collect himself.<br><br>"Ye got that?"`;
     buttons = /*HTML*/`
         <button onclick="biffFirebrandAskAboutBrother()">Continue</button>`
     updateScreen()
 }
 function biffFirebrandAskAboutBrother() {
-    paragraph1 = `"Shite, forgot to INTRODUCE MESELF!<br>Name's BIFF Firebrand, eldest of the Firebrand family and proprietor of Firebrand Brandy Breweries!"<br><br>His posture seems to gain a little for every word.<br><br>"FINEST BREWERY in ALL of TROLLHALL! Though as you might've heard the Trollhalls ain't exactly dwarven territory right now."<br><br>The mood darkens.<br><br>"Which is why we're taking the fight BACK to them TROLLS! But then little Diff had to go and get himself lost... Again..."<br><br>Biff lets out a heavy sigh<br><br>"Please, if ya see him?<br>Just tell him to come back home..."`;
+    paragraph1 = `"Shite, forgot to INTRODUCE MESELF!<br>Name's BIFF Firebrand, eldest of the Firebrand family and proprietor of Firebrand Brandy Breweries!"<br><br>His posture seems to gain a little for each word.<br><br>"FINEST BREWERY in ALL of TROLLHALL! Though as you might've heard the Trollhalls ain't exactly dwarven territory right now."<br><br>His mood darkens.<br><br>"Which is why we're taking the fight back to them trolls! But then little Diff had to go and get himself lost... Again..."<br><br>He lets out a heavy sigh.<br><br>"Please, if ya see him?...<br>Just tell him to come back home..."`;
     buttons = /*HTML*/`
-        <button onclick="biffFirebrandAskAboutBrother()">Leave</button>`
+        <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
-
-
-
-
-
-
-function crossroadTalkToRanger() {
-    header = "-STAGHELM RANGER-";
+// RANGER INGVAR .............. //
+function rangerIngvar() {
+    header = "-RANGER INGVAR-";
     img = "/img/crossroad-ranger.jpg";
-    paragraph1 = ``;
+    paragraph1 = `"Ha! Well I'll be..."<br><br>The man pushes through a grin.<br>You recognize this man, this is Ingvar Geirsson, a local ranger who helps protect the roads from bandits and beasts alike.<br><br>"I wasn't expecting to run into you here, friend! Have a seat why don't you?"<br><br>He pours you a drink<br><br>"I certainly wouldn't mind the company!"`;
     buttons = /*HTML*/`
-        <button onclick=""></button>`
+        <button onclick="rangerIngvarSitDown()">Sit down</button>
+        <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
+function rangerIngvarSitDown() {
+    paragraph1 = `"I hope you'll forgive me if it's been awhile since my last visit to Hjort. Been pretty busy what with all the bandit attacks along the road to Druge"<br><br>He takes a swig of his drink.<br><br>"Ah, so tell me, what brought you all the way out here?"<br><br>`;
+    buttons = /*HTML*/`
+        <button onclick="rangerIngvarTell()">The Lady of the Mountain</button>
+        <button onclick="rangerIngvarDontTell()">Nothing</button>`
+    updateScreen()
+}
+function rangerIngvarTell() {
+    paragraph1 = `"The lady? Why on... Well, I'm sure you have your reasons..."<br><br>Concern spreads across his face, his smile still wide though less so than before.<br><br>"I hope you know what you're doing, friend.<br>I've know good men who tried to find the lady for even better reasons."<br><br>He takes a cautious sip from his drink<br><br>"But hey, it was nice to see a friendly face.<br>I hope you find her, I really do. Just remember, there's no shame in turning back... Good luck, friend..."`;
+    buttons = /*HTML*/`
+        <button onclick="crossroadLookAround()">Leave</button>`
+    updateScreen()
+}
+function rangerIngvarDontTell() {
+    paragraph1 = `"Hehe, alright, keep your secrets!"<br><br>He snickers to himself.<br><br>"I'm sure it's none of my business anyway.<br>Gods know i've got enough on my plate already."<br><br>He points towards the red haired dwarf by the bar.<br><br>"Imagine an almost endless supply of those guys, but turned to banditry instead... yup. That's what we rangers have to deal with now after the trolls took back Trollhall..."<br><br>He brushes it off.<br><br>"But anyway, it was nice to see a friendly face. Good luck on your travels, friend."`;
+    buttons = /*HTML*/`
+        <button onclick="crossroadLookAround()">Leave</button>`
+    updateScreen()
+}
+
+
+
+
+
+
+
+
 function crossroadTalkToShipwright() {
     header = "-EGGON SHIPWRIGHT-";
     img = "/img/crossroad-shipwright.jpg";
