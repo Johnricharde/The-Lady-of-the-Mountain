@@ -274,13 +274,13 @@ function dogGreetsYou() {
             img = "/img/dog.jpg";
             paragraph1 = `the dog says thank you and follows you`;
             buttons = /*HTML*/`
-                <button onclick="">Continue</button>`; 
+                <button onclick="followRoadOrThroughForest()">Continue</button>`; 
         } else if (playerTrinket != "Amulet of Tongues") {
             header = "-DOG-";
             img = "/img/dog.jpg";
             paragraph1 = `the dog follows you`;
             buttons = /*HTML*/`
-                <button onclick="">Continue</button>`; 
+                <button onclick="followRoadOrThroughForest()">Continue</button>`; 
         } else {console.log("Error, dogGreetsYou() function")}
     } else if (freedDog != true) {
         followRoadOrThroughForest()
@@ -301,7 +301,7 @@ function followRoadOrThroughForest() {
 function crossroadInn() {
     header = "-CROSSROAD INN-";
     img = "/img/crossroad-inn.jpg";
-    paragraph1 = `You come across the famous Crossroad Inn, the intersection between the four towns of:<br><br>HJORT<br>Your home,<br>a humble waypoint towards the city of Grundheim.<br><br>DRUGE<br>A dwarven cesspool,<br>filled with thieves and refugees from Trollhall.<br><br> EGGON<br>A well respected shipwright village,<br>also known for harboring pirates.<br><br> BRUS<br>The birthplace of legends and fools,<br>in the shadow of Mournstone Mountain.<br>And your destination.<br><br>All sorts of people pass through here.`;
+    paragraph1 = `You come across the famous Crossroad Inn, the intersection between the four towns of:<br><br>HJORT<br>Your home,<br>a humble waypoint towards the city of Grundheim.<br><br>DRUGE<br>A dwarven cesspool,<br>filled with thieves and refugees from Trollhall.<br><br> EGGON<br>A well respected shipwright village,<br>also known for harboring pirates.<br><br> BRUS<br>The birthplace of legends and fools,<br>in the shadow of Mournstone Mountain.<br>And your destination.`;
     buttons = /*HTML*/`
         <button onclick="crossroadInnInterior()">Enter</button>`
     updateScreen()
@@ -314,38 +314,41 @@ function crossroadInnInterior() {
         <button onclick="">Leave</button>`; 
     updateScreen()
 }
+
+
+
+
 function crossroadLookAround() {
     header = "-CROSSROAD INN-";
     img = "/img/crossroad-inn-interior.jpg";
-    paragraph1 = `You look around and see:<br><br>The barkeep behind the counter.<br><br>An unamused elf standing guard.<br><br>A dwarf with fiery red hair questioning patrons by the bar.<br><br>A man wearing the iconic green cloak og the Staghelm rangers.`;
+    paragraph1 = `You look around and see:<br><br>A halfling barmaid behind the counter.<br><br>An unamused elf standing guard.<br><br>A dwarf with fiery red hair questioning patrons by the bar.<br><br>A man wearing the colors of the Staghelm rangers.<br><br>A strange man covered in trinkets.`;
     buttons = /*HTML*/`
-        <button onclick="crossroadTalkToBarkeep()">Talk to the barkeep</button>
+        <button onclick="tippyAlebrook()">Talk to the barkeep</button>
         <button onclick="linSunblossom()">Talk to the elf</button>
         <button onclick="biffFirebrand()">Talk to the dwarf</button>
         <button onclick="rangerIngvar()">Talk to the ranger</button>
-        <button onclick="crossroadTalkToShipwright()">Talk to the shipwright</button>
+        <button onclick="mysteriousStranger()">Talk to the stranger</button>
         <button onclick="">Leave</button>`; 
     updateScreen()
 }
 
-
-
-
-
 crossroadInnInterior()
-function crossroadTalkToBarkeep() {
-    header = "-BARKEEP-";
+// TIPPY ALEBROOK ............. //
+function tippyAlebrook() {
+    header = "-TIPPY ALEBROOK-";
     img = "/img/crossroad-barkeep.jpg";
-    paragraph1 = ``;
+    paragraph1 = `"Evening, sir!<br>What can i getcha?"<br><br>She perks up as you approach,<br>revealing a wide and friendly smile.<br><br>"Food, drink, room for the night maybe?"<br><br>You wouldn't have thought it possible, but her smile widens even further. Like leather on a tanning rack.<br><br>She almost seems excited as she awaits your response.`;
     buttons = /*HTML*/`
-        <button onclick=""></button>`
+        <button onclick="">Buy food and drink</button>
+        <button onclick="">Buy a room</button>
+        <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
-// LIN SUNBLOSSOM ..............//
+// LIN SUNBLOSSOM ............. //
 function linSunblossom() {
     header = "-LIN SUNBLOSSOM-";
     img = "/img/crossroad-elf.jpg";
-    paragraph1 = `Looking utterly unamused,<br>she does not move as you approach.<br><br>"Bars over there."<br><br>She points towards the bar using her chin. She doesn't seem interested in talking with you.`;
+    paragraph1 = `Looking utterly unamused,<br>she does not move as you approach.<br><br>"Bars over there."<br><br>She points towards the bar using her chin. It doesn't seem like she's interested in talking to you.`;
     buttons = /*HTML*/`
         <button onclick="crossroadLookAround()">leave</button>`
     updateScreen()
@@ -407,22 +410,34 @@ function rangerIngvarDontTell() {
         <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
-
-
-
-
-
-
-
-
-function crossroadTalkToShipwright() {
-    header = "-EGGON SHIPWRIGHT-";
-    img = "/img/crossroad-shipwright.jpg";
-    paragraph1 = ``;
+// IKLO LEYFAUSON ............. //
+function mysteriousStranger() {
+    header = "-STRANGE MAN-";
+    img = "/img/crossroad-stranger.jpg";
+    paragraph1 = `The man eyes you with a sly smile as you approach.<br><br>"You like riddles, friend?"<br><br>You're caught off guard, but he continues.<br><br>"I find riddles hide many truths.<br>However, recently i've been troubled.<br>You see I'm trying to solve some riddles a friend threw my way... Perhaps you'd be so kind as to indulge me?"`;
     buttons = /*HTML*/`
-        <button onclick=""></button>`
+        <button onclick="mysteriousStrangerRiddle1()">Accept riddle</button>
+        <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
+function mysteriousStrangerRiddle1() {
+    paragraph1 = `"Hmm, alright then."<br><br>He clears his throat before reciting the riddle<br><br>"A head of gold, a tail to match.<br>Change i bring, change i am...<br>What am i?"`;
+    buttons = /*HTML*/`
+        <input type="text">
+        <button onclick="">Answer</button>
+        <button onclick="crossroadLookAround()">Leave</button>`
+    updateScreen()
+}
+
+
+
+// function mysteriousStranger() {
+//     paragraph1 = ``;
+//     buttons = /*HTML*/`
+//         <button onclick="">Accept riddle</button>
+//         <button onclick="crossroadLookAround()">Leave</button>`
+//     updateScreen()
+// }
 
 
 // CHOOSE TO GO THROUGH FOREST //////////////////////
