@@ -410,34 +410,91 @@ function rangerIngvarDontTell() {
         <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
-// IKLO LEYFAUSON ............. //
+// MYSTERIOUS STRANGER ........ //
 function mysteriousStranger() {
     header = "-STRANGE MAN-";
     img = "/img/crossroad-stranger.jpg";
-    paragraph1 = `The man eyes you with a sly smile as you approach.<br><br>"You like riddles, friend?"<br><br>You're caught off guard, but he continues.<br><br>"I find riddles hide many truths.<br>However, recently i've been troubled.<br>You see I'm trying to solve some riddles a friend threw my way... Perhaps you'd be so kind as to indulge me?"`;
+    paragraph1 = `The man eyes you with a sly smile as you approach.<br><br>"You like riddles, stranger?"<br><br>You're caught off guard, but he continues.<br><br>"I find riddles hide many truths.<br>However, recently I've been troubled.<br>You see I'm trying to crack some riddles a friend threw my way... Perhaps you'd be so kind as to indulge me?"`;
     buttons = /*HTML*/`
-        <button onclick="mysteriousStrangerRiddle1()">Accept riddle</button>
+        <button onclick="strangersRiddle1()">Accept riddle</button>
         <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
-function mysteriousStrangerRiddle1() {
-    paragraph1 = `"Hmm, alright then."<br><br>He clears his throat before reciting the riddle<br><br>"A head of gold, a tail to match.<br>Change i bring, change i am...<br>What am i?"`;
+function strangersRiddle1() {
+    paragraph1 = `"Hmm, alright then."<br><br>He clears his throat before reciting the riddle<br><br>"A head of gold, a tail to match.<br>Change I bring, change I am...<br>What am I?"`;
     buttons = /*HTML*/`
-        <input type="text">
-        <button onclick="">Answer</button>
+        <input id="riddle-answer-1" type="text" placeholder="Write here...">
+        <button onclick="strangersRiddleAnswer1()">Answer</button>
         <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
-
-
-
-// function mysteriousStranger() {
-//     paragraph1 = ``;
-//     buttons = /*HTML*/`
-//         <button onclick="">Accept riddle</button>
-//         <button onclick="crossroadLookAround()">Leave</button>`
-//     updateScreen()
-// }
+function strangersRiddleAnswer1() {
+    let riddleAnswer1 = document.getElementById('riddle-answer-1').value;
+    if (riddleAnswer1.toLowerCase() == "coin") {
+        paragraph1 = `"Hmm, yes i think you might be right."<br><br>He rubs his chin,<br>there's a twinkle in his eye.<br><br>"Ready for the next one?"`;
+        buttons = /*HTML*/`
+            <button onclick="strangersRiddle2()">Next riddle</button>
+            <button onclick="crossroadLookAround()">Leave</button>`
+    } else if (riddleAnswer1.toLowerCase() != "coin") {
+        paragraph1 = `Hmm, no i don't that's it...`
+        buttons = /*HTML*/`
+            <input id="riddle-answer-1" type="text" placeholder="Write here...">
+            <button onclick="strangersRiddleAnswer1()">Answer</button>
+            <button onclick="crossroadLookAround()">Leave</button>`
+    } else {strangersRiddle1()}
+    updateScreen()
+}
+function strangersRiddle2() {
+    paragraph1 = `He looks over your shoulder as if recalling a lost memory.<br><br>"A rich man wants me, a poor man owns me.<br>If you ate me, you would surely perish...<br>What am I"`;
+    buttons = /*HTML*/`
+        <input id="riddle-answer-2" type="text" placeholder="Write here...">
+        <button onclick="strangersRiddleAnswer2()">Answer</button>
+        <button onclick="crossroadLookAround()">Leave</button>`
+    updateScreen()
+}
+function strangersRiddleAnswer2() {
+    let riddleAnswer2 = document.getElementById('riddle-answer-2').value;
+    if (riddleAnswer2.toLowerCase() == "nothing") {
+        paragraph1 = `"Hmm, yes i think you might be right."<br><br>He rubs his chin,<br>there's a twinkle in his eye.<br><br>"Ready for the last one?"`;
+        buttons = /*HTML*/`
+            <button onclick="strangersRiddle3()">Next riddle</button>
+            <button onclick="crossroadLookAround()">Leave</button>`
+    } else if (riddleAnswer2.toLowerCase() != "nothing") {
+        paragraph1 = `Hmm, no i don't that's it...`
+        buttons = /*HTML*/`
+            <input id="riddle-answer-2" type="text" placeholder="Write here...">
+            <button onclick="strangersRiddleAnswer2()">Answer</button>
+            <button onclick="crossroadLookAround()">Leave</button>`
+    } else {strangersRiddle2()}
+    updateScreen()
+}
+function strangersRiddle3() {
+    paragraph1 = `His gaze locks onto your as you readies his last riddle.<br><br>"Why do you seek the Lady of the Mountain?"<br><br>There's a playful tone to the question,<br>and mischief in his eyes.<br><br>How did he know?`;
+    buttons = /*HTML*/`
+        <button onclick="strangersRiddleAnswer3()">Answer truthfully</button>
+        <button onclick="strangersRiddleAnswer3Refuse()">Refuse to answer</button>
+        <button onclick="crossroadLookAround()">Leave</button>`
+    updateScreen()
+}
+function strangersRiddleAnswer3() {
+        paragraph1 = `"And there you have it."<br><br>He clasps his hands together.<br>You struggle to interpret his reaction.<br><br>"Thanks for humoring me, stranger."<br><br>He sounds surprisingly genuine,<br>there's a humbleness about him now.<br><br>"Here, take this as thanks,<br>and good luck on your journey."<br><br>He offers you one of his trinkets.`;
+        buttons = /*HTML*/`
+            <button onclick="strangersRiddleReward()">Accept gift</button>
+            <button onclick="crossroadLookAround()">Leave</button>`
+    updateScreen()
+}
+function strangersRiddleAnswer3Refuse() {
+        paragraph1 = `"Well then, suppose I'll just have to keep wondering."<br><br>He looks you over until his gaze meets yours.<br><br>"Come back if you change your mind.<br>Either way i wish you good luck on your journey."<br><br>He gently brushes you off.`;
+        buttons = /*HTML*/`
+            <button onclick="crossroadLookAround()">Leave</button>`
+    updateScreen()
+}
+function strangersRiddleReward() {
+    paragraph1 = `He hands you a glass eye.<br>There seems to be a faint blue mist within it.`;
+    buttons = /*HTML*/`
+        <button onclick="crossroadLookAround()">Leave</button>`
+updateScreen()
+}
 
 
 // CHOOSE TO GO THROUGH FOREST //////////////////////
