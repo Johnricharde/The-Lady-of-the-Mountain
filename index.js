@@ -11,28 +11,31 @@ let buttons = ``;
 
 // VIEW ///////////////////////////////////////////
 updateScreen()
- 
-    function updateScreen() {
-        newScreen = /*HTML*/ `
-        <h1>${header}</h1>
-        <img src="${img}">
-        <p>${paragraph1}</p>
-        <p>${paragraph2}</p>
-        <div id="buttons">${buttons}</div>
-        `
-        screen.innerHTML = newScreen
-    }
+
+function updateScreen() {
+    newScreen = /*HTML*/ `
+    <h1>${header}</h1>
+    <img src="${img}">
+    <p>${paragraph1}</p>
+    <p>${paragraph2}</p>
+    <div id="buttons">${buttons}</div>
+    `
+    screen.innerHTML = newScreen
+}
 
 // CONTROLLER ///////////////////////////////////
 let playerWeapon = "Magic";
 let playerArmor = "Light Armor";
 let playerTrinket = "Helmet of Illumination";
 
-let freedDog = false;
+// Checks if player has done certain things:
+let dogFreed = false;
+let strangerMet = false;
+let strangerTrinket = false;
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // INTRODUCTION ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| INTRODUCTION //
-// introduction()
+introduction()
 function introduction() {
     header = "-TALES OF VARGEN-";
     img = "/img/startscreen.jpg";
@@ -138,7 +141,7 @@ function banditsSneakUp() {
     paragraph1 = `you sneak up on the bandits. you ready your ${playerWeapon}. you attack them and already two are down, their dog retaliates against the third bandit and the fourth on runs away in the panic`;
     buttons = /*HTML*/`
         <button onclick="banditsConclusion()">Continue</button>`;
-    freedDog = true;
+    dogFreed = true;
     updateScreen()
 }
 function banditsAvoid() {
@@ -199,7 +202,7 @@ function banditsTricked() {
     paragraph1 = `You convince the bandits that your here on the bandit chief behalf in order to take the dog`;
     buttons = /*HTML*/`
         <button onclick="banditsConclusion()">Continue</button>`;
-    freedDog = true;
+    dogFreed = true;
     updateScreen()
 }
 function banditsUseHelmet() {
@@ -207,7 +210,7 @@ function banditsUseHelmet() {
     paragraph1 = `the helmets light blinds the bandits, leaving you to make short work of them. the dog lashes out at its master as soon as he drops the leash`;
     buttons = /*HTML*/`
         <button onclick="banditsConclusion()">Continue</button>`;
-    freedDog = true;
+    dogFreed = true;
     updateScreen()
 }
 function banditsFight() {
@@ -242,7 +245,7 @@ function banditsFight() {
                 <button onclick="banditsConclusion()">Continue</button>`;
         }
     } else {banditsConclusion()};
-    freedDog = true;
+    dogFreed = true;
     updateScreen()
 }
 function banditsRunAway() {
@@ -268,7 +271,7 @@ function banditsConclusion() {
 // BANDIT ENCOUNTER OVER ////////////////////////////
 
 function dogGreetsYou() {
-    if (freedDog == true) {
+    if (dogFreed == true) {
         if (playerTrinket == "Amulet of Tongues") {
             header = "-DOG-";
             img = "/img/dog.jpg";
@@ -282,7 +285,7 @@ function dogGreetsYou() {
             buttons = /*HTML*/`
                 <button onclick="followRoadOrThroughForest()">Continue</button>`; 
         } else {console.log("Error, dogGreetsYou() function")}
-    } else if (freedDog != true) {
+    } else if (dogFreed != true) {
         followRoadOrThroughForest()
     }
     updateScreen()
@@ -297,6 +300,7 @@ function followRoadOrThroughForest() {
     updateScreen()
 }
 // CHOOSE TO FOLLOW THE ROAD ////////////////////////
+
 // CROSSROAD INN ////////////////////////////////////
 function crossroadInn() {
     header = "-CROSSROAD INN-";
@@ -314,10 +318,6 @@ function crossroadInnInterior() {
         <button onclick="">Leave</button>`; 
     updateScreen()
 }
-
-
-
-
 function crossroadLookAround() {
     header = "-CROSSROAD INN-";
     img = "/img/crossroad-inn-interior.jpg";
@@ -327,12 +327,10 @@ function crossroadLookAround() {
         <button onclick="linSunblossom()">Talk to the elf</button>
         <button onclick="biffFirebrand()">Talk to the dwarf</button>
         <button onclick="rangerIngvar()">Talk to the ranger</button>
-        <button onclick="mysteriousStranger()">Talk to the stranger</button>
+        <button onclick="strangerCrossroad()">Talk to the stranger</button>
         <button onclick="">Leave</button>`; 
     updateScreen()
 }
-
-crossroadInnInterior()
 // TIPPY ALEBROOK ............. //
 function tippyAlebrook() {
     header = "-TIPPY ALEBROOK-";
@@ -411,13 +409,14 @@ function rangerIngvarDontTell() {
     updateScreen()
 }
 // MYSTERIOUS STRANGER ........ //
-function mysteriousStranger() {
+function strangerCrossroad() {
     header = "-STRANGE MAN-";
     img = "/img/crossroad-stranger.jpg";
     paragraph1 = `The man eyes you with a sly smile as you approach.<br><br>"You like riddles, stranger?"<br><br>You're caught off guard, but he continues.<br><br>"I find riddles hide many truths.<br>However, recently I've been troubled.<br>You see I'm trying to crack some riddles a friend threw my way... Perhaps you'd be so kind as to indulge me?"`;
     buttons = /*HTML*/`
         <button onclick="strangersRiddle1()">Accept riddle</button>
         <button onclick="crossroadLookAround()">Leave</button>`
+    strangerMet = true;
     updateScreen()
 }
 function strangersRiddle1() {
@@ -493,6 +492,7 @@ function strangersRiddleReward() {
     paragraph1 = `He hands you a glass eye.<br>There seems to be a faint blue mist within it.`;
     buttons = /*HTML*/`
         <button onclick="crossroadLookAround()">Leave</button>`
+    strangerTrinket = true;
 updateScreen()
 }
 
