@@ -40,7 +40,7 @@ let strangerTrinket = false;
 introduction()
 function introduction() {
     header = "TALES OF VARGEN";
-    img = "/img/startscreen.jpg";
+    img = "/img/chapter1/startscreen.jpg";
     paragraph1 = `<h3>The Lady of The Mountain</h3><br>In the realm of Vargen,<br>where you've lived a humble life.`;
     buttons = /*HTML*/`
         <button onclick="yourPast()">BEGIN</button>`
@@ -48,7 +48,7 @@ function introduction() {
 }
 function yourPast() {
     header = "YOUR PAST";
-    img = "/img/past.jpg";
+    img = "/img/chapter1/past.jpg";
     paragraph1 = /*HTML*/`
         In times of peril, you swore by your... <br>
             <label class="custom-radio-button custom-radio-button-label" onclick="selectWeapon('Sword')">
@@ -85,7 +85,7 @@ function yourPast() {
 }
 function yourFuture() {
     header = "YOUR FUTURE";
-    img = "/img/future.jpg";
+    img = "/img/chapter1/future.jpg";
     paragraph1 = /*HTML*/`
         What drives you forward is your lust for... <br>
             <label class="custom-radio-button custom-radio-button-label" onclick="">
@@ -115,7 +115,7 @@ function yourFuture() {
 // CHAPTER I ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER I //
 function day1() {
     header = "LEAVING HOME";
-    img = "/img/dirt-road.jpg";
+    img = "/img/chapter1/dirt-road.jpg";
     paragraph1 = `You depart from the village of Hjort and begin your journey from home to seek out the lady.<br><br>Your reasons for doing so are yours and yours alone.<br><br>Next stop, the village of Brus.`;
     paragraph2 = `YOU CHOOSE TO...`
     buttons = /*HTML*/`
@@ -124,7 +124,7 @@ function day1() {
 }
 function dirtRoad1() {
     header = "ON THE ROAD";
-    img = "/img/dirt-road2.jpg";
+    img = "/img/chapter1/dirt-road2.jpg";
     paragraph1 = `You continue on your journey. Suddenly...`;
     buttons = /*HTML*/`
         <button onclick="dirtRoad2()">Continue</button>`;
@@ -134,7 +134,7 @@ function dirtRoad1() {
 function dirtRoad2() {
     if (playerTrinket == "Cloak of Shadows") {
         header = "BANDIT AMBUSH";
-        img = "/img/bandit-ambush-unsurprised.jpg";
+        img = "/img/chapter1/bandit-ambush-unsurprised.jpg";
         paragraph1 = `You spot bandits ahead. Seems their lookout didn't spot you due to your cloak of shadows`;
         buttons = /*HTML*/`
             <button onclick="bandits()">Approach</button>
@@ -142,7 +142,7 @@ function dirtRoad2() {
             <button onclick="banditsAvoid()">Avoid them</button>`;
     } else if (playerTrinket != "Cloak of Shadows") {
         header = "BANDITS AHEAD";
-        img = "/img/bandit-ambush-surprised.jpg";
+        img = "/img/chapter1/bandit-ambush-surprised.jpg";
         paragraph1 = `Bandits appear out from behind the trees. Their lookout must've spotted you. They approach...`;
         buttons = /*HTML*/`
             <button onclick="bandits()">Continue</button>`;
@@ -167,14 +167,14 @@ function banditsAvoid() {
 function bandits() {
     if (playerTrinket == "Amulet of Tongues") {
         header = "BANDITS";
-        img = "/img/bandit-ambush-surprised.jpg";
+        img = "/img/chapter1/bandit-ambush-surprised.jpg";
         paragraph1 = `The bandits demand your money but their dog speaks up begging for your help`;
         buttons = /*HTML*/`
             <button onclick="banditsDog()">Continue</button>`; 
     } else if (playerTrinket != "Amulet of Tongues") {
         if (playerTrinket == "Helmet of Illumination") {
             header = "BANDITS";
-            img = "/img/bandit-ambush-surprised.jpg";
+            img = "/img/chapter1/bandit-ambush-surprised.jpg";
             paragraph1 = `The bandits demand your money`;
             buttons = /*HTML*/`
                 <button onclick="banditsUseHelmet()">Fight (Helmet of Illumination)</button>
@@ -182,7 +182,7 @@ function bandits() {
                 <button onclick="banditsRunAway()">Run away</button>`;
         } else if (playerTrinket != "Helmet of Illumination") {
             header = "BANDITS";
-            img = "/img/bandit-ambush-surprised.jpg";
+            img = "/img/chapter1/bandit-ambush-surprised.jpg";
             paragraph1 = `Bandits demand your money, does not have helmet`;
             buttons = /*HTML*/`
                 <button onclick="banditsFight()">Fight</button>
@@ -202,7 +202,7 @@ function banditsDog() {
 }
 function banditsDog2() {
     header = "BANDITS";
-    img = "/img/bandit-ambush-surprised.jpg";
+    img = "/img/chapter1/bandit-ambush-surprised.jpg";
     paragraph1 = `Bandits demand your money`;
     buttons = /*HTML*/`
         <button onclick="banditsTricked()">Trick bandits (Amulet of Tongues)</button>
@@ -219,7 +219,7 @@ function banditsTricked() {
     updateScreen()
 }
 function banditsUseHelmet() {
-    img = "/img/bandits-blinded-by-light.jpg";
+    img = "/img/chapter1/bandits-blinded-by-light.jpg";
     paragraph1 = `the helmets light blinds the bandits, leaving you to make short work of them. the dog lashes out at its master as soon as he drops the leash`;
     buttons = /*HTML*/`
         <button onclick="banditsConclusion()">Continue</button>`;
@@ -275,7 +275,7 @@ function banditsGiveGold() {
 }
 function banditsConclusion() {
     header = "ONWARDS";
-    img = "/img/dirt-road.jpg";
+    img = "/img/chapter1/dirt-road.jpg";
     paragraph1 = `you continue on your journey after having dealt with the bandits, many more trials ahead.`;
     buttons = /*HTML*/`
         <button onclick="dogGreetsYou()">Continue</button>`;
@@ -305,7 +305,7 @@ function dogGreetsYou() {
 }
 function followRoadOrThroughForest() {
     header = "HOW TO PROCEED";
-    img = "/img/dirt-road.jpg";
+    img = "/img/chapter1/dirt-road.jpg";
     paragraph1 = `Your encounter with the bandits have led you to consider wheter or not following the road is the best course of action.`;
     buttons = /*HTML*/`
         <button onclick="crossroadInn()">Stay on the road</button>
@@ -316,14 +316,14 @@ function followRoadOrThroughForest() {
 // CROSSROAD INN ////////////////////////////////////
 function crossroadInn() {
     header = "CROSSROAD INN";
-    img = "/img/crossroad-inn.jpg";
+    img = "/img/chapter1/crossroad-inn.jpg";
     paragraph1 = `You come across the famous Crossroad Inn, the intersection between the four towns of:<br><br>HJORT<br>Your home,<br>a humble waypoint towards the city of Grundheim.<br><br>DRUGE<br>A dwarven cesspool,<br>filled with thieves and refugees from Trollhall.<br><br> EGGON<br>A well respected shipwright village,<br>also known for harboring pirates.<br><br> BRUS<br>The birthplace of legends and fools,<br>in the shadow of Mournstone Mountain.<br>And your destination.`;
     buttons = /*HTML*/`
         <button onclick="crossroadInnInterior()">Enter</button>`
     updateScreen()
 }
 function crossroadInnInterior() {
-    img = "/img/crossroad-inn-interior.jpg";
+    img = "/img/chapter1/crossroad-inn-interior.jpg";
     paragraph1 = `You enter the crossroad Inn`;
     buttons = /*HTML*/`
         <button onclick="crossroadLookAround()">Look around</button>
@@ -332,7 +332,7 @@ function crossroadInnInterior() {
 }
 function crossroadLookAround() {
     header = "CROSSROAD INN";
-    img = "/img/crossroad-inn-interior.jpg";
+    img = "/img/chapter1/crossroad-inn-interior.jpg";
     paragraph1 = `You look around and see:<br><br>A halfling barmaid behind the counter.<br><br>An unamused elf standing guard.<br><br>A dwarf with fiery red hair questioning patrons by the bar.<br><br>A man wearing the colors of the Staghelm rangers.<br><br>A strange man covered in trinkets.`;
     buttons = /*HTML*/`
         <button onclick="tippyAlebrook()">Talk to the barkeep</button>
@@ -345,7 +345,7 @@ function crossroadLookAround() {
 // TIPPY ALEBROOK ............. //
 function tippyAlebrook() {
     header = "TIPPY ALEBROOK";
-    img = "/img/crossroad-barkeep.jpg";
+    img = "/img/chapter1/crossroad-barkeep.jpg";
     paragraph1 = `"Evening, sir!<br>What can i getcha?"<br><br>She perks up as you approach,<br>revealing a wide and friendly smile.<br><br>"Food, drink, room for the night maybe?"<br><br>You wouldn't have thought it possible, but her smile widens even further. Like leather on a tanning rack.<br><br>She almost seems excited as she awaits your response.`;
     buttons = /*HTML*/`
         <button onclick="tippyAlebrookFoodAndDrink()">Buy food and drink</button>
@@ -377,7 +377,7 @@ function tippyAlebrookAnythingElse() {
 // BIFF FIREBRAND ............. //
 function biffFirebrand() {
     header = "BIFF FIREBRAND";
-    img = "/img/crossroad-dwarf.jpg";
+    img = "/img/chapter1/crossroad-dwarf.jpg";
     paragraph1 = `"Ye there!"<br><br>The red haired dwarf bursts out before you have time to react.<br><br>"Ye haven't by any chance seen a red haired dwarf lately have ye? About yay tall, dumb as a rock and ugly as a troll?"<br><br>He illustrates by bringing his hand up to about his own height`;
     buttons = /*HTML*/`
         <button onclick="biffFirebrandPoint()">Point at him</button>
@@ -405,7 +405,7 @@ function biffFirebrandAskAboutBrother() {
 // RANGER INGVAR .............. //
 function rangerIngvar() {
     header = "RANGER INGVAR";
-    img = "/img/crossroad-ranger.jpg";
+    img = "/img/chapter1/crossroad-ranger.jpg";
     paragraph1 = `"Ha! Well I'll be..."<br><br>The man pushes through a grin.<br>You recognize this man, this is Ingvar Geirsson, a local ranger who helps protect the roads from bandits and beasts alike.<br><br>"I wasn't expecting to run into you here, friend! Have a seat why don't you?"<br><br>He pours you a drink<br><br>"I certainly wouldn't mind the company!"`;
     buttons = /*HTML*/`
         <button onclick="rangerIngvarSitDown()">Sit down</button>
@@ -434,7 +434,7 @@ function rangerIngvarDontTell() {
 // MYSTERIOUS STRANGER ........ //
 function strangerCrossroad() {
     header = "STRANGE MAN";
-    img = "/img/crossroad-stranger.jpg";
+    img = "/img/chapter1/crossroad-stranger.jpg";
     paragraph1 = `The man eyes you with a sly smile as you approach.<br><br>"You like riddles, stranger?"<br><br>You're caught off guard, but he continues.<br><br>"I find riddles hide many truths.<br>However, recently I've been troubled.<br>You see I'm trying to crack some riddles a friend threw my way... Perhaps you'd be so kind as to indulge me?"`;
     buttons = /*HTML*/`
         <button onclick="strangersRiddle1()">Accept riddle</button>
@@ -529,7 +529,7 @@ function day1Rest() {
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // CHAPTER II ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER II //
 function day2() {
-    img = "/img/crossroad-inn-interior.jpg";
+    img = "/img/chapter1/crossroad-inn-interior.jpg";
     paragraph1 = `You check out of the Crossroad Inn,<br>ready to continue your journey.`;
     buttons = /*HTML*/`
         <button onclick="">Continue</button>`; 
@@ -593,7 +593,7 @@ function rollD10() {
 
 function leaveBrus() {
     header = "-THE PATH AHEAD-"
-    img = "/img/brus-departure.jpg"
+    img = "/img/chapter1/brus-departure.jpg"
     paragraph1 = `With a resolute heart, you step away from the comforting embrace of the village of Brus.<br>The cobblestone streets gradually give way to a rugged, snow-covered terrain as you begin your arduous journey toward the daunting silhouette of Mount Mournstone. The air is thick with anticipation, and the whispers of legends and mysteries cling to your every step.<br><br>Three distinct paths now lay before you:`;
     buttons = /*HTML*/`
         <button onclick="chooseForestPath()">Follow the Forest Trail</button>
@@ -606,7 +606,7 @@ function leaveBrus() {
 // FOREST PATH ..................................... FOREST PATH
 function chooseForestPath() {
     header = "-GLOWING TREE TRUNK-"
-    img = "/img/treetrunk.jpg"
+    img = "/img/chapter1/treetrunk.jpg"
     paragraph1 = `You opt for the Forest Trail, venturing into the snow-covered woods.<br>Towering trees create a natural canopy overhead, and the world is hushed, save for the soft crunch of your boots in the pristine snow. The path weaves through the ancient forest, where legends of hidden creatures and spectral whispers thrive.<br><br>As you continue your journey, you come across an unusual sight - a large, gnarled tree with a gaping hollow in its trunk. Within the hollow, you spot a shimmering, ethereal light. It pulses softly, casting an eerie glow that dances upon the surrounding snow.`;
     buttons = /*HTML*/`
         <button onclick="orbApproach()">Approach the light</button>
@@ -617,7 +617,7 @@ function chooseForestPath() {
 }
 function campForest() {
     header = "-FOREST CAMP-"
-    img = "/img/forest-camp.jpg"
+    img = "/img/chapter1/forest-camp.jpg"
     paragraph1 = `As night falls over the snow-covered forest, the necessity of setting up camp becomes evident. You quickly gather what's available to create a makeshift campfire, providing not only much-needed warmth but also a sense of security in this chilling wilderness. Sitting by the flickering flames, the crackling fire and the distant hoot of an owl are your sole companions in this serene, dark world.<br><br>Your bedroll offers a modest comfort as you lay down to rest. Thoughts whirl in your mind, a tumultuous sea of questions and possibilities. With the enigmatic Lady of the Mountain on your mind and the forest's mysteries surrounding you, you drift into a deep, uncertain sleep, aware that the journey ahead holds both peril and promise.`;
     buttons = /*HTML*/`
         <button onclick="campForestMorning()">Sleep</button>
@@ -626,7 +626,7 @@ function campForest() {
 }
 function campForestMorning() {
     header = "-THE NEXT DAY-"
-    img = "/img/forest-path.jpg"
+    img = "/img/chapter1/forest-path.jpg"
     paragraph1 = `As dawn breaks and you wake from your restless slumber, your journey must press on through the snow-covered forest. The path ahead stretches into an unknown world, its secrets veiled in the frosty air. The forest, bathed in predawn light, invites you deeper into its heart, where ancient trees stand sentinel and the earth seems to whisper untold stories.<br><br>You gather your belongings, each step in the snow leaving a faint imprint of your presence. With the wilderness all around you, you contemplate your next move, aware that every decision shapes the course of your quest. The frigid air stings your cheeks as you breathe deeply, embracing the challenges and mysteries that lie ahead.`;
     buttons = /*HTML*/`
         <button onclick="runestones()">Continue</button>
@@ -637,7 +637,7 @@ function campForestMorning() {
 // RIDGE PATH ....................................... RIDGE PATH
 function chooseRidgePath() {
     header = "--"
-    img = "/img/.jpg"
+    img = "/img/chapter1/.jpg"
     paragraph1 = ``
     buttons = /*HTML*/`
     <button onclick=""></button>
@@ -646,7 +646,7 @@ function chooseRidgePath() {
 }
 function campRidge() {
     header = "--"
-    img = "/img/.jpg"
+    img = "/img/chapter1/.jpg"
     paragraph1 = ``
     buttons = /*HTML*/`
     <button onclick=""></button>
@@ -655,7 +655,7 @@ function campRidge() {
 }
 function campRidgeMorning() {
     header = "--"
-    img = "/img/.jpg"
+    img = "/img/chapter1/.jpg"
     paragraph1 = ``
     buttons = /*HTML*/`
     <button onclick=""></button>
@@ -665,7 +665,7 @@ function campRidgeMorning() {
 // RIVER PATH ....................................... RIVER PATH
 function chooseRiverPath() {
     header = "--"
-    img = "/img/.jpg"
+    img = "/img/chapter1/.jpg"
     paragraph1 = ``
     buttons = /*HTML*/`
     <button onclick=""></button>
@@ -674,7 +674,7 @@ function chooseRiverPath() {
 }
 function campRiver() {
     header = "--"
-    img = "/img/.jpg"
+    img = "/img/chapter1/.jpg"
     paragraph1 = ``
     buttons = /*HTML*/`
     <button onclick=""></button>
@@ -683,7 +683,7 @@ function campRiver() {
 }
 function campRiverMorning() {
     header = "--"
-    img = "/img/.jpg"
+    img = "/img/chapter1/.jpg"
     paragraph1 = ``
     buttons = /*HTML*/`
     <button onclick=""></button>
@@ -695,7 +695,7 @@ function campRiverMorning() {
 // CHAPTER III ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER III //
 function midPoint() {
     header = "-UNDER THE SUMMIT-"
-    img = "/img/mid-point.jpg"
+    img = "/img/chapter1/mid-point.jpg"
     paragraph1 = `You take your leave and press onward, drawing ever closer to the summit of Mount Mournstone. The air grows colder, and the landscape more unforgiving.<br><br>As you ascend, you notice the ominous signs of a storm brewing on the horizon. Dark clouds gather, and the wind carries a bitter chill. Ahead of you, the mountain presents three distinct paths, each cloaked in its own allure`;
     buttons = /*HTML*/`
         <button onclick="chooseCave()">Enter the cave</button>
@@ -706,7 +706,7 @@ function midPoint() {
 }
 function chooseCave() {
     header = "-ICE CAVE ENTRANCE-"
-    img = "/img/cave-entrance.jpg"
+    img = "/img/chapter1/cave-entrance.jpg"
     paragraph1 = `With unwavering determination in your heart and the storm's impending fury above, you decide to seek refuge within the ominous maw of the cave. As you step into its frigid darkness, the temperature drops sharply, and the sensation of crisp, icy air fills your lungs. The narrow entrance gradually widens, unveiling the secrets hidden within.<br><br>Dim, ethereal light filters through from the entrance, casting eerie, azure-hued shadows upon the icy cave walls. Stalactites resembling crystalline daggers hang from above, their icy formations glistening with an otherworldly beauty. The rocky floor, covered in a frosty glaze, crunches softly beneath your insulated boots. Water drips from unseen sources, forming small, delicate icicles and creating tiny pools in the depressions of the uneven, frozen ground.`
     buttons = /*HTML*/`
         <button onclick="caveJunction()">Continue</button>
@@ -718,7 +718,7 @@ function chooseCave() {
 // EPILOGUE ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| EPILOGUE //
 function nearSummit() {
     header = "-THE SUMMIT-"
-    img = "/img/near-summit.jpg"
+    img = "/img/chapter1/near-summit.jpg"
     paragraph1 = `As your journey draws to its culmination, you stand upon the summit of Mount Mournstone, taking in the panoramic view of the world below. You reflection upon choices made, revealing the essence of your character.<br><br>You accepted the barkeep's heartfelt plea for help, a testament to your compassion. When duty called, you heeded it, offering your aid to a desperate father.<br><br>Approaching the glowing orb nestled within the tree trunk, you claimed it for yourself, revealing a curiosity and thirst for the unknown. This choice has marked you as an adventurer at heart, willing to seize opportunities that others might shun.<br><br>In the face of adversity, you never flinched. Even when a hungry wolf threatened your path, you confronted it head-on, displaying unwavering resolve and a fierce determination to survive.`
     buttons = /*HTML*/`
         <button onclick="nearSummit2()">Continue</button>
@@ -733,7 +733,7 @@ function nearSummit2() {
      updateScreen()
 }
 function summit() {
-    img = "/img/summit.jpg"
+    img = "/img/chapter1/summit.jpg"
     paragraph1 = `As you reach the summit of Mount Mournstone, your breaths come out in quick bursts, and your heart races with anticipation. You stand at the culmination of your journey, expecting to find the Lady of the Mountain awaiting your arrival.<br><br>Yet, there is nothing but silence. The wind whispers, and the world stretches out before you, revealing the vast expanse of mountains and the boundless ocean beyond. Birds soar freely overhead, their calls filling the air.<br><br>As you stand there, breathing in the crisp mountain air, you feel a deep connection with yourself and the choices you made throughout your journey. The obstacles you faced, the people you encountered, and the challenges you overcame have all contributed to your growth.<br><br>It's a moment of clarity, a recognition that the path you've traveled has led you to a deeper understanding of who you are and what truly matters.`
     buttons = /*HTML*/`
         <button onclick="end()">TURN BACK</button>
@@ -742,7 +742,7 @@ function summit() {
 }
 function end() {
     header = "-THE END-"
-    img = "/img/startscreen.jpg"
+    img = "/img/chapter1/startscreen.jpg"
     paragraph1 = `THANKS FOR PLAYING!<br><br>-John-`
     buttons = ""
      updateScreen()
