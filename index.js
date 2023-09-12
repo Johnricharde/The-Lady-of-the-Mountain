@@ -14,7 +14,7 @@ updateScreen()
 
 function updateScreen() {
     newScreen = /*HTML*/ `
-    <h1>${header}</h1>
+    <h1>🙠 ${header} 🙢</h1>
     <img src="${img}">
     <p>${paragraph1}</p>
     <h4>${paragraph2}</h4>
@@ -37,17 +37,17 @@ let strangerTrinket = false;
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // INTRODUCTION ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| INTRODUCTION //
-// introduction()
+introduction()
 function introduction() {
-    header = "-TALES OF VARGEN-";
+    header = "TALES OF VARGEN";
     img = "/img/startscreen.jpg";
-    paragraph1 = `<h3>- The Lady of The Mountain -</h3><br>In the realm of Vargen,<br>where you've lived a humble life.`;
+    paragraph1 = `<h3>The Lady of The Mountain</h3><br>In the realm of Vargen,<br>where you've lived a humble life.`;
     buttons = /*HTML*/`
         <button onclick="yourPast()">BEGIN</button>`
     updateScreen()
 }
 function yourPast() {
-    header = "-YOUR PAST-";
+    header = "YOUR PAST";
     img = "/img/past.jpg";
     paragraph1 = /*HTML*/`
         In times of peril, you swore by your... <br>
@@ -84,17 +84,29 @@ function yourPast() {
     updateScreen()
 }
 function yourFuture() {
-    header = "-YOUR FUTURE-";
+    header = "YOUR FUTURE";
     img = "/img/future.jpg";
     paragraph1 = /*HTML*/`
         What drives you forward is your lust for... <br>
-            <button>Adventure and Glory</button>
-            <button>Fame and Fortune</button>
-            <button>Power and Wisdom</button><br><br>
+            <label class="custom-radio-button custom-radio-button-label" onclick="">
+                <input type="radio" name="" value="">Adventure and Glory
+            </label>
+            <label class="custom-radio-button custom-radio-button-label" onclick="">
+                <input type="radio" name="" value="">Fame and Fortune
+            </label>
+            <label class="custom-radio-button custom-radio-button-label" onclick="">
+                <input type="radio" name="" value="">Power and Wisdom
+            </label><br><br>
         You must confront the lady in order to seek her... <br>
-            <button>Help</button>
-            <button>Treasure</button>
-            <button>Death</button>`;
+            <label class="custom-radio-button custom-radio-button-label" onclick="">
+                <input type="radio" name="" value="">Help
+            </label>
+            <label class="custom-radio-button custom-radio-button-label" onclick="">
+                <input type="radio" name="" value="">Treasure
+            </label>
+            <label class="custom-radio-button custom-radio-button-label" onclick="">
+                <input type="radio" name="" value="">Death
+            </label><br><br>`;
     paragraph2 = ``
     buttons = /*HTML*/`<button onclick="day1()">Continue</button>`;
     updateScreen()
@@ -102,7 +114,7 @@ function yourFuture() {
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // CHAPTER I ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER I //
 function day1() {
-    header = "-LEAVING HOME-";
+    header = "LEAVING HOME";
     img = "/img/dirt-road.jpg";
     paragraph1 = `You depart from the village of Hjort and begin your journey from home to seek out the lady.<br><br>Your reasons for doing so are yours and yours alone.<br><br>Next stop, the village of Brus.`;
     paragraph2 = `YOU CHOOSE TO...`
@@ -111,7 +123,7 @@ function day1() {
     updateScreen()
 }
 function dirtRoad1() {
-    header = "-ON THE ROAD-";
+    header = "ON THE ROAD";
     img = "/img/dirt-road2.jpg";
     paragraph1 = `You continue on your journey. Suddenly...`;
     buttons = /*HTML*/`
@@ -121,7 +133,7 @@ function dirtRoad1() {
 // BANDIT ENCOUNTER /////////////////////////////////
 function dirtRoad2() {
     if (playerTrinket == "Cloak of Shadows") {
-        header = "-BANDIT AMBUSH-";
+        header = "BANDIT AMBUSH";
         img = "/img/bandit-ambush-unsurprised.jpg";
         paragraph1 = `You spot bandits ahead. Seems their lookout didn't spot you due to your cloak of shadows`;
         buttons = /*HTML*/`
@@ -129,7 +141,7 @@ function dirtRoad2() {
             <button onclick="banditsSneakUp()">Sneak up</button>
             <button onclick="banditsAvoid()">Avoid them</button>`;
     } else if (playerTrinket != "Cloak of Shadows") {
-        header = "-BANDITS AHEAD-";
+        header = "BANDITS AHEAD";
         img = "/img/bandit-ambush-surprised.jpg";
         paragraph1 = `Bandits appear out from behind the trees. Their lookout must've spotted you. They approach...`;
         buttons = /*HTML*/`
@@ -138,7 +150,7 @@ function dirtRoad2() {
     updateScreen()
 }
 function banditsSneakUp() {
-    header = "-SNEAK UP ON BANDITS-";
+    header = "SNEAK UP ON BANDITS";
     paragraph1 = `you sneak up on the bandits. you ready your ${playerWeapon}. you attack them and already two are down, their dog retaliates against the third bandit and the fourth on runs away in the panic`;
     buttons = /*HTML*/`
         <button onclick="banditsConclusion()">Continue</button>`;
@@ -146,7 +158,7 @@ function banditsSneakUp() {
     updateScreen()
 }
 function banditsAvoid() {
-    header = "-AVOID THE BANDITS-";
+    header = "AVOID THE BANDITS";
     paragraph1 = `The bandits outnumber you. you decide its not work the risk and circle around the bandits so you may continue on your journey.`;
     buttons = /*HTML*/`
         <button onclick="banditsConclusion()">Continue</button>`;
@@ -154,14 +166,14 @@ function banditsAvoid() {
 }
 function bandits() {
     if (playerTrinket == "Amulet of Tongues") {
-        header = "-BANDITS-";
+        header = "BANDITS";
         img = "/img/bandit-ambush-surprised.jpg";
         paragraph1 = `The bandits demand your money but their dog speaks up begging for your help`;
         buttons = /*HTML*/`
             <button onclick="banditsDog()">Continue</button>`; 
     } else if (playerTrinket != "Amulet of Tongues") {
         if (playerTrinket == "Helmet of Illumination") {
-            header = "-BANDITS-";
+            header = "BANDITS";
             img = "/img/bandit-ambush-surprised.jpg";
             paragraph1 = `The bandits demand your money`;
             buttons = /*HTML*/`
@@ -169,7 +181,7 @@ function bandits() {
                 <button onclick="banditsGiveGold()">Give gold</button>
                 <button onclick="banditsRunAway()">Run away</button>`;
         } else if (playerTrinket != "Helmet of Illumination") {
-            header = "-BANDITS-";
+            header = "BANDITS";
             img = "/img/bandit-ambush-surprised.jpg";
             paragraph1 = `Bandits demand your money, does not have helmet`;
             buttons = /*HTML*/`
@@ -181,7 +193,7 @@ function bandits() {
     updateScreen()
 }
 function banditsDog() {
-    header = "-BANDITS DOG-";
+    header = "BANDITS DOG";
     img = "/img/dog.jpg";
     paragraph1 = `The dog begs you to help him escape, advicing you to mention the name of the bandit chief`;
     buttons = /*HTML*/`
@@ -189,7 +201,7 @@ function banditsDog() {
     updateScreen()
 }
 function banditsDog2() {
-    header = "-BANDITS-";
+    header = "BANDITS";
     img = "/img/bandit-ambush-surprised.jpg";
     paragraph1 = `Bandits demand your money`;
     buttons = /*HTML*/`
@@ -262,7 +274,7 @@ function banditsGiveGold() {
     updateScreen()
 }
 function banditsConclusion() {
-    header = "-CONTINUE THE JOURNEY-";
+    header = "ONWARDS";
     img = "/img/dirt-road.jpg";
     paragraph1 = `you continue on your journey after having dealt with the bandits, many more trials ahead.`;
     buttons = /*HTML*/`
@@ -274,13 +286,13 @@ function banditsConclusion() {
 function dogGreetsYou() {
     if (dogFreed == true) {
         if (playerTrinket == "Amulet of Tongues") {
-            header = "-DOG-";
+            header = "DOG";
             img = "/img/dog.jpg";
             paragraph1 = `the dog says thank you and follows you`;
             buttons = /*HTML*/`
                 <button onclick="followRoadOrThroughForest()">Continue</button>`; 
         } else if (playerTrinket != "Amulet of Tongues") {
-            header = "-DOG-";
+            header = "DOG";
             img = "/img/dog.jpg";
             paragraph1 = `the dog follows you`;
             buttons = /*HTML*/`
@@ -292,7 +304,7 @@ function dogGreetsYou() {
     updateScreen()
 }
 function followRoadOrThroughForest() {
-    header = "-HOW TO PROCEED-";
+    header = "HOW TO PROCEED";
     img = "/img/dirt-road.jpg";
     paragraph1 = `Your encounter with the bandits have led you to consider wheter or not following the road is the best course of action.`;
     buttons = /*HTML*/`
@@ -303,7 +315,7 @@ function followRoadOrThroughForest() {
 // CHOOSE TO FOLLOW THE ROAD ////////////////////////
 // CROSSROAD INN ////////////////////////////////////
 function crossroadInn() {
-    header = "-CROSSROAD INN-";
+    header = "CROSSROAD INN";
     img = "/img/crossroad-inn.jpg";
     paragraph1 = `You come across the famous Crossroad Inn, the intersection between the four towns of:<br><br>HJORT<br>Your home,<br>a humble waypoint towards the city of Grundheim.<br><br>DRUGE<br>A dwarven cesspool,<br>filled with thieves and refugees from Trollhall.<br><br> EGGON<br>A well respected shipwright village,<br>also known for harboring pirates.<br><br> BRUS<br>The birthplace of legends and fools,<br>in the shadow of Mournstone Mountain.<br>And your destination.`;
     buttons = /*HTML*/`
@@ -319,7 +331,7 @@ function crossroadInnInterior() {
     updateScreen()
 }
 function crossroadLookAround() {
-    header = "-CROSSROAD INN-";
+    header = "CROSSROAD INN";
     img = "/img/crossroad-inn-interior.jpg";
     paragraph1 = `You look around and see:<br><br>A halfling barmaid behind the counter.<br><br>An unamused elf standing guard.<br><br>A dwarf with fiery red hair questioning patrons by the bar.<br><br>A man wearing the colors of the Staghelm rangers.<br><br>A strange man covered in trinkets.`;
     buttons = /*HTML*/`
@@ -332,7 +344,7 @@ function crossroadLookAround() {
 }
 // TIPPY ALEBROOK ............. //
 function tippyAlebrook() {
-    header = "-TIPPY ALEBROOK-";
+    header = "TIPPY ALEBROOK";
     img = "/img/crossroad-barkeep.jpg";
     paragraph1 = `"Evening, sir!<br>What can i getcha?"<br><br>She perks up as you approach,<br>revealing a wide and friendly smile.<br><br>"Food, drink, room for the night maybe?"<br><br>You wouldn't have thought it possible, but her smile widens even further. Like leather on a tanning rack.<br><br>She almost seems excited as she awaits your response.`;
     buttons = /*HTML*/`
@@ -364,7 +376,7 @@ function tippyAlebrookAnythingElse() {
 }
 // BIFF FIREBRAND ............. //
 function biffFirebrand() {
-    header = "-BIFF FIREBRAND-";
+    header = "BIFF FIREBRAND";
     img = "/img/crossroad-dwarf.jpg";
     paragraph1 = `"Ye there!"<br><br>The red haired dwarf bursts out before you have time to react.<br><br>"Ye haven't by any chance seen a red haired dwarf lately have ye? About yay tall, dumb as a rock and ugly as a troll?"<br><br>He illustrates by bringing his hand up to about his own height`;
     buttons = /*HTML*/`
@@ -392,7 +404,7 @@ function biffFirebrandAskAboutBrother() {
 }
 // RANGER INGVAR .............. //
 function rangerIngvar() {
-    header = "-RANGER INGVAR-";
+    header = "RANGER INGVAR";
     img = "/img/crossroad-ranger.jpg";
     paragraph1 = `"Ha! Well I'll be..."<br><br>The man pushes through a grin.<br>You recognize this man, this is Ingvar Geirsson, a local ranger who helps protect the roads from bandits and beasts alike.<br><br>"I wasn't expecting to run into you here, friend! Have a seat why don't you?"<br><br>He pours you a drink<br><br>"I certainly wouldn't mind the company!"`;
     buttons = /*HTML*/`
@@ -421,7 +433,7 @@ function rangerIngvarDontTell() {
 }
 // MYSTERIOUS STRANGER ........ //
 function strangerCrossroad() {
-    header = "-STRANGE MAN-";
+    header = "STRANGE MAN";
     img = "/img/crossroad-stranger.jpg";
     paragraph1 = `The man eyes you with a sly smile as you approach.<br><br>"You like riddles, stranger?"<br><br>You're caught off guard, but he continues.<br><br>"I find riddles hide many truths.<br>However, recently I've been troubled.<br>You see I'm trying to crack some riddles a friend threw my way... Perhaps you'd be so kind as to indulge me?"`;
     buttons = /*HTML*/`
@@ -507,7 +519,7 @@ function strangersRiddleReward() {
 updateScreen()
 }
 function day1Rest() {
-    header = "-REST-";
+    header = "REST";
     img = "/img/blackscreen.jpg";
     paragraph1 = ``;
     buttons = /*HTML*/`
@@ -523,7 +535,6 @@ function day2() {
         <button onclick="">Continue</button>`; 
     updateScreen()
 }
-rollD20()
 combatTesting()
 
 var playerBlock = false;
@@ -531,7 +542,7 @@ var playerBlock = false;
 var enemyHP = 50;
 
 function combatTesting() {
-    header = "-COMBAT-";
+    header = "COMBAT";
     img = "/img/frost-wolves.jpg";
     paragraph1 = `Fight or die!`;
     paragraph2 = `YOU CHOOSE TO...`;
