@@ -31,13 +31,14 @@ body {
     background-color: rgb(62, 71, 72);
 }
 /* TYPOGRAPHY --------------------------------------------- */
-h1 {
+h1, h3, h4 {
     margin: 0px;
     padding: 10px;
 }
 p {
     padding: 10px 5px;
     margin: 0 50px;
+
 }
 
 /* IMAGES */

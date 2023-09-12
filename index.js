@@ -17,16 +17,18 @@ function updateScreen() {
     <h1>${header}</h1>
     <img src="${img}">
     <p>${paragraph1}</p>
-    <p>${paragraph2}</p>
+    <h4>${paragraph2}</h4>
     <div id="buttons">${buttons}</div>
     `
     screen.innerHTML = newScreen
 }
 
 // CONTROLLER ///////////////////////////////////
+// Keeps track of player stats
 let playerWeapon = "Magic";
 let playerArmor = "Light Armor";
 let playerTrinket = "Helmet of Illumination";
+let playerHP = 50;
 
 // Checks if player has done certain things:
 let dogFreed = false;
@@ -35,12 +37,11 @@ let strangerTrinket = false;
 
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // INTRODUCTION ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| INTRODUCTION //
-introduction()
+// introduction()
 function introduction() {
     header = "-TALES OF VARGEN-";
     img = "/img/startscreen.jpg";
-    paragraph1 = `<h3>In the realm of Vargen,</h3>`;
-    paragraph2 = `Placeholder, introduction to the setting and setting up the plot`;
+    paragraph1 = `<h3>- The Lady of The Mountain -</h3><br>In the realm of Vargen,<br>where you've lived a humble life.`;
     buttons = /*HTML*/`
         <button onclick="yourPast()">BEGIN</button>`
     updateScreen()
@@ -104,7 +105,7 @@ function day1() {
     header = "-LEAVING HOME-";
     img = "/img/dirt-road.jpg";
     paragraph1 = `You depart from the village of Hjort and begin your journey from home to seek out the lady.<br><br>Your reasons for doing so are yours and yours alone.<br><br>Next stop, the village of Brus.`;
-    paragraph2 = `<h4>YOU CHOOSE TO...</h4>`
+    paragraph2 = `YOU CHOOSE TO...`
     buttons = /*HTML*/`
         <button onclick="dirtRoad1()">Continue</button>`;
     updateScreen()
@@ -300,7 +301,6 @@ function followRoadOrThroughForest() {
     updateScreen()
 }
 // CHOOSE TO FOLLOW THE ROAD ////////////////////////
-
 // CROSSROAD INN ////////////////////////////////////
 function crossroadInn() {
     header = "-CROSSROAD INN-";
@@ -324,7 +324,6 @@ function crossroadLookAround() {
     paragraph1 = `You look around and see:<br><br>A halfling barmaid behind the counter.<br><br>An unamused elf standing guard.<br><br>A dwarf with fiery red hair questioning patrons by the bar.<br><br>A man wearing the colors of the Staghelm rangers.<br><br>A strange man covered in trinkets.`;
     buttons = /*HTML*/`
         <button onclick="tippyAlebrook()">Talk to the barkeep</button>
-        <button onclick="linSunblossom()">Talk to the elf</button>
         <button onclick="biffFirebrand()">Talk to the dwarf</button>
         <button onclick="rangerIngvar()">Talk to the ranger</button>
         <button onclick="strangerCrossroad()">Talk to the stranger</button>
@@ -337,18 +336,30 @@ function tippyAlebrook() {
     img = "/img/crossroad-barkeep.jpg";
     paragraph1 = `"Evening, sir!<br>What can i getcha?"<br><br>She perks up as you approach,<br>revealing a wide and friendly smile.<br><br>"Food, drink, room for the night maybe?"<br><br>You wouldn't have thought it possible, but her smile widens even further. Like leather on a tanning rack.<br><br>She almost seems excited as she awaits your response.`;
     buttons = /*HTML*/`
-        <button onclick="">Buy food and drink</button>
-        <button onclick="">Buy a room</button>
+        <button onclick="tippyAlebrookFoodAndDrink()">Buy food and drink</button>
+        <button onclick="tippyAlebrookBuyRoom()">Buy a room</button>
         <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
-// LIN SUNBLOSSOM ............. //
-function linSunblossom() {
-    header = "-LIN SUNBLOSSOM-";
-    img = "/img/crossroad-elf.jpg";
-    paragraph1 = `Looking utterly unamused,<br>she does not move as you approach.<br><br>"Bars over there."<br><br>She points towards the bar using her chin. It doesn't seem like she's interested in talking to you.`;
+function tippyAlebrookFoodAndDrink() {
+    paragraph1 = `She serves you a hearthy meal with an ale on the side.<br><br>All you HP has been restored.`;
     buttons = /*HTML*/`
-        <button onclick="crossroadLookAround()">leave</button>`
+        <button onclick="tippyAlebrookAnythingElse()">Continue</button>`
+    updateScreen()
+}
+function tippyAlebrookBuyRoom() {
+    paragraph1 = `You buy a room for the night.<br><br>Would you like to go to bed now?`;
+    buttons = /*HTML*/`
+        <button onclick="day1Rest()">Yes</button>
+        <button onclick="tippyAlebrookAnythingElse()">No</button>`
+    updateScreen()
+}
+function tippyAlebrookAnythingElse() {
+    paragraph1 = `"Anything else i can help you with?"`;
+    buttons = /*HTML*/`
+    <button onclick="tippyAlebrookFoodAndDrink()">Buy food and drink</button>
+    <button onclick="tippyAlebrookBuyRoom()">Buy a room</button>
+    <button onclick="crossroadLookAround()">Leave</button>`
     updateScreen()
 }
 // BIFF FIREBRAND ............. //
@@ -495,59 +506,80 @@ function strangersRiddleReward() {
     strangerTrinket = true;
 updateScreen()
 }
-
-
-// CHOOSE TO GO THROUGH FOREST //////////////////////
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function day1Rest() {
+    header = "-REST-";
+    img = "/img/blackscreen.jpg";
+    paragraph1 = ``;
+    buttons = /*HTML*/`
+        <button onclick="day2()">Wake up</button>`
+    updateScreen()
+}
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // CHAPTER II ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER II //
+function day2() {
+    img = "/img/crossroad-inn-interior.jpg";
+    paragraph1 = `You check out of the Crossroad Inn,<br>ready to continue your journey.`;
+    buttons = /*HTML*/`
+        <button onclick="">Continue</button>`; 
+    updateScreen()
+}
+rollD20()
+combatTesting()
+
+var playerBlock = false;
+
+var enemyHP = 50;
+
+function combatTesting() {
+    header = "-COMBAT-";
+    img = "/img/frost-wolves.jpg";
+    paragraph1 = `Fight or die!`;
+    paragraph2 = `YOU CHOOSE TO...`;
+    buttons = /*HTML*/`
+        <button onclick="heavyAttack()">Heavy attack</button>
+        <button onclick="quickAttack()">Quick attack</button>
+        <button onclick="">Block</button>
+        <button onclick="">Run away</button>`;
+        updateScreen()
+}
+function heavyAttack() {
+    let dmgRoll = rollD20();
+    enemyHP -= dmgRoll;
+}
+function quickAttack() {
+    let dmgRoll = rollD10();
+    enemyHP -= dmgRoll;
+}
+function block() {
+    playerBlock = true;
+}
+
+function rollD20() {
+    var d20Roll = Math.floor(Math.random() * 20 + 1);
+    return d20Roll;
+}
+function rollD10() {
+    let d10Roll = Math.floor(Math.random() * 10 + 1);
+    return d10Roll;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function leaveBrus() {
     header = "-THE PATH AHEAD-"
     img = "/img/brus-departure.jpg"
