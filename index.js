@@ -24,11 +24,10 @@ function updateScreen() {
 }
 
 // CONTROLLER ///////////////////////////////////
-// Keeps track of player stats
+// Keeps track of player items
 let playerWeapon = "Magic";
 let playerArmor = "Light Armor";
 let playerTrinket = "Helmet of Illumination";
-let playerHP = 50;
 
 // Checks if player has done certain things:
 let dogFreed = false;
@@ -491,7 +490,7 @@ function strangersRiddleAnswer2() {
     updateScreen()
 }
 function strangersRiddle3() {
-    paragraph1 = `His gaze locks onto your as you readies his last riddle.<br><br>"Why do you seek the Lady of the Mountain?"<br><br>There's a playful tone to the question,<br>and mischief in his eyes.<br><br>How did he know?`;
+    paragraph1 = `His gaze locks onto your as you readies his last riddle.<br><br>"Why do you seek the Lady of the Mountain?"<br><br>There's an almost playful tone to the question.`;
     buttons = /*HTML*/`
         <button onclick="strangersRiddleAnswer3()">Answer truthfully</button>
         <button onclick="strangersRiddleAnswer3Refuse()">Refuse to answer</button>
@@ -536,21 +535,20 @@ function day2() {
     updateScreen()
 }
 
-var playerBlock = false;
 
-var enemyHP = 50;
+
+
 
 
 // COMBAT MECHANICS:
 // Quick Attack:   Deals a certain amount of damage. Can be blocked.
 // Heavy Attack:   Deals double damage but fails if the opponent uses Quick Attack.
 // Block Attack:   Prevents damage from Quick Attack but cannot block Heavy Attack.
-tutorialIntro()
-
+tutorialCombat()
 function tutorialIntro() {
     header = "LINDA";
     img = "/img/tutorial-girl.jpg";
-    paragraph1 = `Before you manage to slip out of town in order to begin your journey you're stopped by "her".<br><br>"And where the blazing hells do you think you're going?"<br><br>You had hoped you could avoid her but no such luck. She's about as pleasant as a wolf in a bag.<br>But you did say you'd spar with her before you left.<br><br>"I won't have your death on my conscience.<br>You're not leaving until I know you're ready!"`;
+    paragraph1 = `Before you manage to slip out of town in order to begin your journey you're stopped by "her".<br><br>"And where in the blazing hells do you think you're going?"<br><br>You had hoped you could avoid her but no such luck. She's about as pleasant as a wolf stuck in a well.<br>But you did say you'd spar with her before you left.<br><br>"I won't have your death on MY conscience.<br>You're not leaving until I know you're ready!"`;
     paragraph2 = `YOU CHOOSE TO...`;
     buttons = /*HTML*/`
         <button onclick="tutorialCombat()">Greet her</button>
@@ -560,26 +558,86 @@ function tutorialIntro() {
 function tutorialCombat() {
     header = "COMBAT TUTORIAL";
     img = "/img/tutorial-girl.jpg";
-    paragraph1 = ``;
+    paragraph1 = `"Hmpf!"<br><br>She does not acknowledge your greeting.<br><br>"Well? Draw your weapon already,<br>and don't you expect me to go EASY on you!"`;
     paragraph2 = `YOU CHOOSE TO...`;
     buttons = /*HTML*/`
         <button onclick="heavyAttack()">Heavy attack</button>
         <button onclick="quickAttack()">Quick attack</button>
-        <button onclick="">Block</button>
+        <button onclick="block()">Block</button>
         <button onclick="">Run away</button>`;
         updateScreen()
 }
+
+var playerHP = 50;
+
+var enemyHP = 50;
+var enemyAction = ""
+var enemyActionArray = [
+    "Heavy attack",
+    "Quick attack",
+    "Block",
+]
+
+function generateEnemyAction() {
+    let randomNum = Math.floor(Math.random() * 3);
+    enemyAction = enemyActionArray[randomNum];
+}
+
+
 function heavyAttack() {
-    let dmgRoll = rollD20();
-    enemyHP -= dmgRoll;
+    generateEnemyAction()
+    if (enemyAction == "Heavy attack") {
+        let dmgRoll = rollD20();
+        enemyHP -= dmgRoll;
+        dmgRoll = rollD20();
+        playerHP -= dmgRoll;
+        console.log("Enemy used Heavy attack! But so did you!")
+    } else if (enemyAction == "Quick attack") {
+        let dmgRoll = rollD10();
+        playerHP -= dmgRoll;
+        console.log("Enemy used Quick attack! Disrupting your attack!")
+    } else if (enemyAction == "Block") {
+        let dmgRoll = rollD20();
+        enemyHP -= dmgRoll;
+        console.log("Enemy used block! But you break their guard!")
+    }
+    console.log("player: " + playerHP);
+    console.log("enemy: " + enemyHP);
 }
 function quickAttack() {
-    let dmgRoll = rollD10();
-    enemyHP -= dmgRoll;
+    generateEnemyAction()
+    if (enemyAction == "Heavy attack") {
+        let dmgRoll = rollD10();
+        enemyHP -= dmgRoll;
+        console.log("Enemy used Heavy attack! But you disrupted their attack!")
+    } else if (enemyAction == "Quick attack") {
+        let dmgRoll = rollD10();
+        enemyHP -= dmgRoll;
+        dmgRoll = rollD10();
+        playerHP -= dmgRoll;
+        console.log("Enemy used Quick attack! But so did you!")
+    } else if (enemyAction == "Block") {
+        console.log("Enemy used block! Deflecting your attack!")
+    }
+    console.log("player: " + playerHP);
+    console.log("enemy: " + enemyHP);
 }
 function block() {
-    playerBlock = true;
+    generateEnemyAction()
+    if (enemyAction == "Heavy attack") {
+        let dmgRoll = rollD20();
+        playerHP -= dmgRoll;
+        console.log("Enemy used Heavy attack! It breaks your guard!")
+    } else if (enemyAction == "Quick attack") {
+        console.log("Enemy used Quick attack! You deflect it!")
+    } else if (enemyAction == "Block") {
+        console.log("Enemy used block! But so did you!")
+    }
+    console.log("player: " + playerHP);
+    console.log("enemy: " + enemyHP);
 }
+
+
 
 function rollD20() {
     var d20Roll = Math.floor(Math.random() * 20 + 1);
