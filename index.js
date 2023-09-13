@@ -19,6 +19,13 @@ function updateScreen() {
     <p>${paragraph1}</p>
     <h4>${paragraph2}</h4>
     <div id="buttons">${buttons}</div>
+    <audio autoplay loop controls>
+    <source src="/music/alexander-nakarada-sunguard.mp3">
+</audio>
+<!-- Sunguard by Alexander Nakarada | https://www.serpentsoundstudios.com
+    Music promoted by https://www.free-stock-music.com
+    Creative Commons / Attribution 4.0 International (CC BY 4.0)
+    https://creativecommons.org/licenses/by/4.0/ -->
     `
     screen.innerHTML = newScreen
 }
