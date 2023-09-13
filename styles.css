@@ -7,46 +7,48 @@ body {
     margin: 0;
     padding: 0;
 }
-#app {
-    margin: 0;
-    padding: 0;
-}
+
+/* CONTAINER ---------------------------------------------- */
 .container {
     padding: 0;
     margin: 0 auto;
     width: 100vw;
     height: 100vh;
-
 }
 #container-box {
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: center;
-    text-align: center;
 }
+.small-container {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 200px;
+}
+
+/* SCREENS ------------------------------------------------ */
 #screen, #inventory-screen, #stats-screen {
+    text-align: center;
     margin: auto;
     width: 500px;
     height: 100vh;
     background-color: rgb(62, 71, 72);
-    border-left: solid rgb(100, 100, 100) 5px;
-    border-right: solid rgb(100, 100, 100) 5px;
-    box-shadow: black 0 0 8px;
-
+    border-left: solid rgb(100, 100, 100) 8px;
+    border-right: solid rgb(100, 100, 100) 8px;
+    box-shadow: 0 0 8px black, inset 0 0 4px black;
+}
+#inventory-screen, #stats-screen {
+    width: 250px;
+    height: 100vh;
+    background-color: rgb(62, 71, 72);
 }
 #inventory-screen {
-    margin-right: 0px;
-    width: 400px;
-    height: 100vh;
-    background-color: rgb(62, 71, 72);
+    margin-left: 0px;
 }
 #stats-screen {
-    margin-left: 0px;
-    width: 400px;
-    height: 100vh;
-    background-color: rgb(62, 71, 72);
+    margin-right: 0px;
 }
+
 /* TYPOGRAPHY --------------------------------------------- */
 h1, h3, h4 {
     margin: 0px;
@@ -66,7 +68,7 @@ img {
     border-radius: 15px;
     box-shadow: black 0 0 8px;
 }
-/* INPUT ------------------------------------------------- */
+/* INPUT -------------------------------------------------- */
 input {
     text-align: center;
     width: 390px;
@@ -81,7 +83,7 @@ input {
     text-shadow: whitesmoke 0 0 5px;
 }
 
-/* BUTTONS ----------------------------------------------- */
+/* BUTTONS ------------------------------------------------ */
 button {
     width: 400px;
     font-weight: bold;
@@ -103,7 +105,8 @@ button:hover {
     border-radius: 5px;
     color: rgb(200, 255, 255);
 }
-/* RADIO BUTTONS ---------------------------------------- */
+
+/* RADIO BUTTONS ------------------------------------------ */
 .custom-radio-button input[type="radio"] {
     display: none;
 }

@@ -1,6 +1,5 @@
 // MODEL //////////////////////////////////////////
 const app = document.getElementById('app');
-let screen = document.getElementById('screen');
 
 let header = "";
 let img = "";
@@ -8,33 +7,74 @@ let paragraph1 = ``;
 let paragraph2 = ``;
 let buttons = ``;
 
+let playerWeapon = "Sword";
+let playerArmor = "Light Armor";
+let playerTrinket = "Amulet of Tongues";
 
 // VIEW ///////////////////////////////////////////
 updateScreen()
 
 function updateScreen() {
     newScreen = /*HTML*/ `
-    <h1>🙠 ${header} 🙢</h1>
-    <img src="${img}">
-    <p>${paragraph1}</p>
-    <h4>${paragraph2}</h4>
-    <div id="buttons">${buttons}</div>
-    <audio autoplay loop controls>
-    <source src="/music/alexander-nakarada-sunguard.mp3">
-</audio>
-<!-- Sunguard by Alexander Nakarada | https://www.serpentsoundstudios.com
-    Music promoted by https://www.free-stock-music.com
-    Creative Commons / Attribution 4.0 International (CC BY 4.0)
-    https://creativecommons.org/licenses/by/4.0/ -->
+
+    <div id="container-box">
+                
+        <div class="container">
+            <div id="stats-screen">
+                <br><h1>CHARACTER</h1><br>
+                <div class="small-container">
+                    <div>
+                        <h4>HEALTH<br>46 / 50</h4>
+                    </div>
+                    <div>
+                        <h4>ARMOR<br>+ 2</h4>
+                    </div>
+                    <div>
+                        <h4>DAMAGE<br>+ 1</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="screen">
+                <h1>🙠 ${header} 🙢</h1>
+                <img src="${img}">
+                <p>${paragraph1}</p>
+                <h4>${paragraph2}</h4>
+                <div id="buttons">${buttons}</div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div id="inventory-screen">
+            <br><h1>INVENTORY</h1><br>
+                <div class="small-container">
+                <h4>WEAPON<br>${playerWeapon}</h4>
+                <h4>ARMOR<br>${playerArmor}</h4>
+                <h4>TRINKET<br>${playerTrinket}</h4>
+                <h4>BACKPACK</h4>
+                    <ul>
+                        <li>Rope</li>
+                        <li>Rations</li>
+                        <li>Climbing boots</li>
+                        <li>Stoneskin elixir</li>
+                        <li>Waterskin</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
     `
-    screen.innerHTML = newScreen
+    app.innerHTML = newScreen
 }
 
 // CONTROLLER ///////////////////////////////////
 // Keeps track of player items
-let playerWeapon = "Magic";
-let playerArmor = "Light Armor";
-let playerTrinket = "Helmet of Illumination";
+// let playerWeapon = "Sword";
+// let playerArmor = "Light Armor";
+// let playerTrinket = "Amulet of Tongues";
 
 // Checks if player has done certain things:
 let dogFreed = false;
@@ -339,7 +379,7 @@ function crossroadInnInterior() {
 function crossroadLookAround() {
     header = "CROSSROAD INN";
     img = "/img/chapter1/crossroad-inn-interior.jpg";
-    paragraph1 = `You look around and see:<br><br>A halfling barmaid behind the counter.<br><br>An unamused elf standing guard.<br><br>A dwarf with fiery red hair questioning patrons by the bar.<br><br>A man wearing the colors of the Staghelm rangers.<br><br>A strange man covered in trinkets.`;
+    paragraph1 = `You look around and see:<br><br>A halfling barmaid behind the counter.<br><br>A dwarf with fiery red hair questioning patrons by the bar.<br><br>A man wearing the colors of the Staghelm rangers.<br><br>A strange man covered in trinkets.`;
     buttons = /*HTML*/`
         <button onclick="tippyAlebrook()">Talk to the barkeep</button>
         <button onclick="biffFirebrand()">Talk to the dwarf</button>
@@ -352,7 +392,7 @@ function crossroadLookAround() {
 function tippyAlebrook() {
     header = "TIPPY ALEBROOK";
     img = "/img/chapter1/crossroad-barkeep.jpg";
-    paragraph1 = `"Evening, sir!<br>What can i getcha?"<br><br>She perks up as you approach,<br>revealing a wide and friendly smile.<br><br>"Food, drink, room for the night maybe?"<br><br>You wouldn't have thought it possible, but her smile widens even further. Like leather on a tanning rack.<br><br>She almost seems excited as she awaits your response.`;
+    paragraph1 = `"Evening, sir!<br>What can i getcha?"<br><br>She perks up as you approach,<br>revealing a wide and friendly smile.<br><br>"Food, drink, room for the night maybe?"<br><br>You wouldn't have thought it possible, but her smile widens even further. Like leather on a tanning rack.`;
     buttons = /*HTML*/`
         <button onclick="tippyAlebrookFoodAndDrink()">Buy food and drink</button>
         <button onclick="tippyAlebrookBuyRoom()">Buy a room</button>
@@ -551,7 +591,7 @@ function day2() {
 // Quick Attack:   Deals a certain amount of damage. Can be blocked.
 // Heavy Attack:   Deals double damage but fails if the opponent uses Quick Attack.
 // Block Attack:   Prevents damage from Quick Attack but cannot block Heavy Attack.
-tutorialCombat()
+// tutorialCombat()
 function tutorialIntro() {
     header = "LINDA";
     img = "/img/tutorial-girl.jpg";
