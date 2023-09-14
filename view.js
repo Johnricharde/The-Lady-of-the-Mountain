@@ -11,13 +11,13 @@ function updateScreen() {
                 <br><h1>CHARACTER</h1><br>
                 <div class="small-container">
                     <div>
-                        <h4>HEALTH<br>46 / 50</h4>
+                        <h5>HEALTH: 46 / 50</h5>
                     </div>
                     <div>
-                        <h4>ARMOR<br>+ 2</h4>
+                        <h5>ARMOR: + 2</h5>
                     </div>
                     <div>
-                        <h4>DAMAGE<br>+ 1</h4>
+                        <h5>DAMAGE: + 1</h5>
                     </div>
                 </div>
             </div>
@@ -27,7 +27,7 @@ function updateScreen() {
             <div id="screen">
                 <h1>🙠 ${header} 🙢</h1>
                 <img src="${img}">
-                <p>${paragraph1}</p>
+                <p class="text-field">${paragraph1}</p>
                 <h4>${paragraph2}</h4>
                 <div id="buttons">${buttons}</div>
             </div>
@@ -37,17 +37,18 @@ function updateScreen() {
             <div id="inventory-screen">
             <br><h1>INVENTORY</h1><br>
                 <div class="small-container">
-                <h4>WEAPON<br>${playerWeapon}</h4>
-                <h4>ARMOR<br>${playerArmor}</h4>
-                <h4>TRINKET<br>${playerTrinket}</h4>
-                <h4>BACKPACK</h4>
-                    <ul>
-                        <li>Rope</li>
-                        <li>Rations</li>
-                        <li>Climbing boots</li>
-                        <li>Stoneskin elixir</li>
-                        <li>Waterskin</li>
-                    </ul>
+                    <h5>WEAPON:<br>${playerWeapon}</h5>
+                    <h5>ARMOR:<br>${playerArmor}</h5>
+                    <h5>TRINKET:<br>${playerTrinket}</h5>
+                    <h5>BACKPACK:<br>
+                        <ul>
+                            <li>Rope</li>
+                            <li>Rations</li>
+                            <li>Climbing boots</li>
+                            <li>Stoneskin elixir</li>
+                            <li>Waterskin</li>
+                        </ul>
+                    </h5>
                 </div>
             </div>
         </div>

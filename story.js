@@ -11,7 +11,7 @@ introduction()
 function introduction() {
     header = "TALES OF VARGEN";
     img = "/img/chapter1/startscreen.jpg";
-    paragraph1 = `<h3>The Lady of The Mountain</h3><br>In the realm of Vargen,<br>where you've lived a humble life.`;
+    paragraph1 = `The Lady of The Mountain<br>In the realm of Vargen,<br>where you've lived a humble life.`;
     buttons = /*HTML*/`
         <button onclick="yourPast()">BEGIN</button>`
     updateScreen()

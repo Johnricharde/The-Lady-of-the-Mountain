@@ -1,8 +1,7 @@
 body {
     user-select: none;
-    background-color: rgb(83, 97, 99);
-    background-image: linear-gradient(rgb(117, 137, 140), rgb(43, 51, 52));
-    color: rgb(221, 221, 221);
+    background-image: linear-gradient(rgb(60, 60, 60), rgb(35, 36, 38));
+    color: rgb(177, 177, 177);
     text-shadow: black 0 0 5px;
     margin: 0;
     padding: 0;
@@ -32,9 +31,10 @@ body {
     margin: auto;
     width: 500px;
     height: 100vh;
-    background-color: rgb(62, 71, 72);
-    border-left: solid rgb(100, 100, 100) 8px;
-    border-right: solid rgb(100, 100, 100) 8px;
+    /* background-color: rgb(62, 71, 72); */
+    background-image: url(/img/stone-background.jpg);
+    border-left: solid rgb(70, 70, 70) 8px;
+    border-right: solid rgb(70, 70, 70) 8px;
     box-shadow: 0 0 8px black, inset 0 0 4px black;
 }
 #inventory-screen, #stats-screen {
@@ -48,23 +48,42 @@ body {
 #stats-screen {
     margin-right: 0px;
 }
-
 /* TYPOGRAPHY --------------------------------------------- */
 h1, h3, h4 {
     margin: 0px;
     padding: 10px;
     text-shadow: black 0 0 5px;
 }
+h5 {
+    background-color: rgb(67, 67, 67);
+    width: 150px;
+    padding: 5px;
+    border: solid rgb(70, 70, 70) 5px;
+    border-radius: 10px;
+    margin: 10px auto;
+    box-shadow: inset black 0 0 5px;
+}
 p {
     padding: 10px 5px;
     margin: 0 50px;
-
+    text-shadow: black 0 0 5px;
+}
+.text-field {
+    margin: 5px 48px;
+    padding: 10px;
+    background-color: rgb(67, 67, 67);
+    border: solid rgb(70, 70, 70) 5px;
+    border-radius: 15px;
+    box-shadow: inset black 0 0 8px;
+}
+li {
+    text-align: start;
 }
 
 /* IMAGES */
 img {
     width: 390px;
-    border: solid rgb(100, 100, 100) 5px;
+    border: solid rgb(70, 70, 70) 5px;
     border-radius: 15px;
     box-shadow: black 0 0 8px;
 }
@@ -91,7 +110,7 @@ button {
     margin: 5px;
     padding: 5px;
     border-radius: 5px;
-    background-color: rgb(100, 100, 100);
+    background-color: rgb(70, 70, 70);
     color: rgb(177, 177, 177);
     text-shadow: black 0 0 5px;
     border: none;
@@ -112,13 +131,13 @@ button:hover {
 }
 .custom-radio-button {
     display: inline-block;
-    width: 400px;
+    width: 350px;
     font-weight: bold;
     font-size: 15px;
     margin: 5px -5px;
     padding: 5px 0px;
     border-radius: 5px;
-    background-color: rgb(100, 100, 100);
+    background-color: rgb(70, 70, 70);
     color: rgb(177, 177, 177);
     text-shadow: black 0 0 5px;
     border: none;
@@ -138,6 +157,6 @@ button:hover {
     border: solid 4px rgb(200, 255, 255);
     background-color: rgb(119, 119, 119);
     color: rgb(200, 255, 255);
-    width: 390px;
+    width: 342px;
     padding: 1px 0px;
 }
