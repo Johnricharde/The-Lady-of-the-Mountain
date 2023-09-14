@@ -55,7 +55,8 @@ h1, h3, h4 {
     text-shadow: black 0 0 5px;
 }
 h5 {
-    background-color: rgb(67, 67, 67);
+    /* background-color: rgb(67, 67, 67); */
+    background-image: url(/img/parchment.jpg);
     width: 150px;
     padding: 5px;
     border: solid rgb(70, 70, 70) 5px;
@@ -71,7 +72,8 @@ p {
 .text-field {
     margin: 5px 48px;
     padding: 10px;
-    background-color: rgb(67, 67, 67);
+    /* background-color: rgb(67, 67, 67); */
+    background-image: url(/img/parchment.jpg);
     border: solid rgb(70, 70, 70) 5px;
     border-radius: 15px;
     box-shadow: inset black 0 0 8px;
