@@ -26,7 +26,9 @@ function updateScreen() {
         <div class="container">
             <div id="screen">
                 <h1>🙠 ${header} 🙢</h1>
-                <img src="${img}">
+                <div id="img-div">
+                    <img src="${img}">
+                </div>
                 <p class="text-field">${paragraph1}</p>
                 <h4>${paragraph2}</h4>
                 <div id="buttons">${buttons}</div>
