@@ -8,7 +8,7 @@ function updateScreen() {
                 
         <div class="container">
             <div id="stats-screen">
-                <br><h1>CHARACTER</h1><br>
+                <br><h1>-CHARACTER-</h1><br>
                 <div class="small-container">
                     <div>
                         <h5>HEALTH: 46 / 50</h5>
@@ -30,14 +30,14 @@ function updateScreen() {
                     <img src="${img}">
                 </div>
                 <p class="text-field">${paragraph1}</p>
-                <h4>${paragraph2}</h4>
+                <h3>${paragraph2}</h3>
                 <div id="buttons">${buttons}</div>
             </div>
         </div>
 
         <div class="container">
             <div id="inventory-screen">
-            <br><h1>INVENTORY</h1><br>
+            <br><h1>-INVENTORY-</h1><br>
                 <div class="small-container">
                     <h5>WEAPON:<br>${playerWeapon}</h5>
                     <h5>ARMOR:<br>${playerArmor}</h5>
