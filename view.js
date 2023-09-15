@@ -11,13 +11,13 @@ function updateScreen() {
                 <br><h1>-CHARACTER-</h1><br>
                 <div class="small-container">
                     <div>
-                        <h5>HEALTH: 46 / 50</h5>
+                        <h5>HEALTH: ${playerHP} / ${playerHPMax}</h5>
                     </div>
                     <div>
-                        <h5>ARMOR: + 2</h5>
+                        <h5>ARMOR: + ${playerArmModifier}</h5>
                     </div>
                     <div>
-                        <h5>DAMAGE: + 1</h5>
+                        <h5>DAMAGE: + ${playerDmgModifier}</h5>
                     </div>
                 </div>
             </div>
@@ -44,11 +44,16 @@ function updateScreen() {
                     <h5>TRINKET:<br>${playerTrinket}</h5>
                     <h5>BACKPACK:<br>
                         <ul>
-                            <li>Rope</li>
-                            <li>Rations</li>
-                            <li>Climbing boots</li>
-                            <li>Stoneskin elixir</li>
-                            <li>Waterskin</li>
+                            <li>${backpackArray[0] || ""}</li>
+                            <li>${backpackArray[1] || ""}</li>
+                            <li>${backpackArray[2] || ""}</li>
+                            <li>${backpackArray[3] || ""}</li>
+                            <li>${backpackArray[4] || ""}</li>
+                            <li>${backpackArray[5] || ""}</li>
+                            <li>${backpackArray[6] || ""}</li>
+                            <li>${backpackArray[7] || ""}</li>
+                            <li>${backpackArray[8] || ""}</li>
+                            <li>${backpackArray[9] || ""}</li>
                         </ul>
                     </h5>
                 </div>

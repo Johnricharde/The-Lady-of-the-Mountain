@@ -14,7 +14,7 @@ body {
     src: url('norse-font-bold.otf') format('opentype');
   }
 
-/* CONTAINER ---------------------------------------------- */
+/* CONTAINER -------------------------------------------------------- CONTAINER */
 .container {
     padding: 0;
     margin: 0 auto;
@@ -32,14 +32,14 @@ body {
     width: 200px;
 }
 
-/* SCREENS ------------------------------------------------ */
+/* SCREENS ------------------------------------------------------------ SCREENS */
 #screen, #inventory-screen, #stats-screen {
     text-align: center;
     margin: auto;
     width: 500px;
     height: 100vh;
     background-image: url(/img/stone-background.jpg);
-    box-shadow: 0 0 8px black, inset 0 0 4px black;
+    box-shadow: 0 0 8px black, inset 0 0 10px black;
 }
 #inventory-screen, #stats-screen {
     width: 210px;
@@ -52,7 +52,7 @@ body {
 #stats-screen {
     margin-right: 0px;
 }
-/* TYPOGRAPHY --------------------------------------------- */
+/* TYPOGRAPHY ------------------------------------------------------ TYPOGRAPHY */
 h1, h2, h3, h4 {
     font-family: 'norse-font-bold', sans-serif;
     margin: 0px;
@@ -63,7 +63,7 @@ h5 {
     background-image: url(/img/dark-stone-background.jpg);
     width: 150px;
     padding: 5px;
-    border-radius: 25px;
+    border-radius: 15px;
     margin: 10px auto;
     box-shadow: inset black 0 0 5px;
 }
@@ -76,17 +76,22 @@ p {
     margin: 5px 54px;
     padding: 10px;
     background-image: url(/img/dark-stone-background.jpg);
-    border-radius: 25px;
+    border-radius: 15px;
     box-shadow: inset black 0 0 8px;
+}
+ul {
+    padding: 0px;
 }
 li {
     text-align: start;
+    margin-left: 25px;
 }
 
-/* IMAGES */
+/* IMAGES -------------------------------------------------------------- IMAGES */
 img {
     width: 390px;
-    border-radius: 25px;
+    border-radius: 15px;
+    border: solid rgb(84, 84, 84) 1px;
 }
 #img-div {
     display: inline-block;
@@ -99,15 +104,15 @@ img {
     height: 99%;
     box-shadow: inset black 0 0 25px, inset black 0 0 15px;
     z-index: 1;
-    border-radius: 25px;
+    border-radius: 15px;
   }
-/* INPUT -------------------------------------------------- */
+/* INPUT ---------------------------------------------------------------- INPUT */
 input {
     text-align: center;
     width: 390px;
     padding: 5px;
     margin: 5px;
-    border-radius: 25px;
+    border-radius: 5px;
     border: none;
     background-color: rgb(177, 177, 177);
     color: rgb(100, 100, 100);
@@ -116,14 +121,14 @@ input {
     text-shadow: whitesmoke 0 0 5px;
 }
 
-/* BUTTONS ------------------------------------------------ */
+/* BUTTONS ------------------------------------------------------------ BUTTONS */
 button {
     width: 400px;
     font-weight: bold;
     font-size: 15px;
     margin: 5px;
     padding: 5px;
-    border-radius: 25px;
+    border-radius: 5px;
     background-color: rgb(70, 70, 70);
     color: rgb(177, 177, 177);
     text-shadow: black 0 0 5px;
@@ -135,11 +140,11 @@ button:hover {
     padding: 7px 17px;
     margin: 1.5px;
     font-size: 17px;
-    border-radius: 25px;
+    border-radius: 5px;
     color: rgb(200, 255, 255);
 }
 
-/* RADIO BUTTONS ------------------------------------------ */
+/* RADIO BUTTONS ------------------------------------------------ RADIO BUTTONS */
 .custom-radio-button input[type="radio"] {
     display: none;
 }
@@ -150,7 +155,7 @@ button:hover {
     font-size: 15px;
     margin: 5px -5px;
     padding: 5px 0px;
-    border-radius: 25px;
+    border-radius: 5px;
     background-color: rgb(70, 70, 70);
     color: rgb(177, 177, 177);
     text-shadow: black 0 0 5px;
@@ -164,12 +169,12 @@ button:hover {
     padding: 5px 0px;
     margin: 3.5px -5px;
     font-size: 17px;
-    border-radius: 25px;
+    border-radius: 5px;
     color: rgb(200, 255, 255);
 }
 .custom-radio-button-label.selected {
     border: solid 4px rgb(200, 255, 255);
-    background-color: rgb(119, 119, 119);
+    background-color: rgb(111, 111, 111);
     color: rgb(200, 255, 255);
     width: 342px;
     padding: 1px 0px;

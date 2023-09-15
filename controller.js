@@ -24,50 +24,47 @@ function heavyAttack() {
         enemyHP -= dmgRoll;
         dmgRoll = rollD20();
         playerHP -= dmgRoll;
-        console.log("Enemy used Heavy attack! But so did you!")
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used HEAVY ATTACK!<br>But so did you!`;
     } else if (enemyAction == "Quick attack") {
         let dmgRoll = rollD10();
         playerHP -= dmgRoll;
-        console.log("Enemy used Quick attack! Disrupting your attack!")
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used QUICK ATTACK!<br>Disrupting your attack!`;
     } else if (enemyAction == "Block") {
         let dmgRoll = rollD20();
         enemyHP -= dmgRoll;
-        console.log("Enemy used block! But you break their guard!")
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used BLOCK!<br>But you break their guard!`;
     }
-    console.log("player: " + playerHP);
-    console.log("enemy: " + enemyHP);
+    updateScreen()
 }
 function quickAttack() {
     generateEnemyAction()
     if (enemyAction == "Heavy attack") {
         let dmgRoll = rollD10();
         enemyHP -= dmgRoll;
-        console.log("Enemy used Heavy attack! But you disrupted their attack!")
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used HEAVY ATTACK!<br>But you disrupted their attack!`;
     } else if (enemyAction == "Quick attack") {
         let dmgRoll = rollD10();
         enemyHP -= dmgRoll;
         dmgRoll = rollD10();
         playerHP -= dmgRoll;
-        console.log("Enemy used Quick attack! But so did you!")
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used QUICK ATTACK!<br>But so did you!`;
     } else if (enemyAction == "Block") {
-        console.log("Enemy used block! Deflecting your attack!")
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used BLOCK!<br>Deflecting your attack!`;
     }
-    console.log("player: " + playerHP);
-    console.log("enemy: " + enemyHP);
+    updateScreen()
 }
 function block() {
     generateEnemyAction()
     if (enemyAction == "Heavy attack") {
         let dmgRoll = rollD20();
         playerHP -= dmgRoll;
-        console.log("Enemy used Heavy attack! It breaks your guard!")
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used HEAVY ATTACK!<br>It breaks your guard!`;
     } else if (enemyAction == "Quick attack") {
-        console.log("Enemy used Quick attack! You deflect it!")
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used QUICK ATTACK!<br>You deflect it!`;
     } else if (enemyAction == "Block") {
-        console.log("Enemy used block! But so did you!")
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used BLOCK!<br>But so did you!`;
     }
-    console.log("player: " + playerHP);
-    console.log("enemy: " + enemyHP);
+    updateScreen()
 }
 
 function rollD20() {

@@ -510,7 +510,7 @@ function day2() {
 
 
 
-// tutorialCombat()
+tutorialCombat()
 function tutorialIntro() {
     header = "LINDA";
     img = "/img/tutorial-girl.jpg";
@@ -523,8 +523,18 @@ function tutorialIntro() {
 }
 function tutorialCombat() {
     header = "COMBAT TUTORIAL";
-    img = "/img/tutorial-girl.jpg";
     paragraph1 = `"Hmpf!"<br><br>She does not acknowledge your greeting.<br><br>"Well? Draw your weapon already,<br>and don't you expect me to go EASY on you!"`;
+    buttons = /*HTML*/`
+        <button onclick="heavyAttack()">Heavy attack</button>
+        <button onclick="quickAttack()">Quick attack</button>
+        <button onclick="block()">Block</button>
+        <button onclick="">Run away</button>`;
+        updateScreen()
+}
+function tutorialCombat() {
+    header = "LINDA";
+    img = "/img/tutorial-girl.jpg";
+    paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}`;
     paragraph2 = `YOU CHOOSE TO...`;
     buttons = /*HTML*/`
         <button onclick="heavyAttack()">Heavy attack</button>
