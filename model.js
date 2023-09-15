@@ -18,10 +18,7 @@ let playerArmor = "Light Armor";
 let playerTrinket = "Amulet of Tongues";
 
 // Backpack
-let backpackArray = [
-"Banana",
-"Sock",
-];
+let backpackArray = [];
 
 
 

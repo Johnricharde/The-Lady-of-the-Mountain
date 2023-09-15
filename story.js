@@ -78,11 +78,71 @@ function yourFuture() {
                 <input type="radio" name="" value="">Death
             </label><br><br>`;
     paragraph2 = ``
-    buttons = /*HTML*/`<button onclick="day1()">Continue</button>`;
+    buttons = /*HTML*/`<button onclick="linda()">Continue</button>`;
     updateScreen()
 }
 // ----------------------------------------------------------------------------------------------------------------------------------------------------------
 // CHAPTER I ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| CHAPTER I //
+// COMBAT TUTORIAL //////////////////////////////////
+function linda() {
+    header = "LINDA";
+    img = "/img/tutorial-girl.jpg";
+    paragraph1 = `Before you manage to slip out of town in order to begin your journey you're stopped by "her".<br><br>"And where in the blazing hells do you think you're going?"<br><br>You had hoped you could avoid her but no such luck. She's about as pleasant as a wolf stuck in a well.<br>But you did say you'd spar with her before you left.<br><br>"I won't have your death on MY conscience.<br>You're not leaving until I know you're ready!"`;
+    buttons = /*HTML*/`
+        <button onclick="lindaGreet()">Greet her</button>
+        <button onclick="day1()">Run away</button>`;
+        updateScreen()
+}
+function lindaGreet() {
+    paragraph1 = `"Hmpf!"<br><br>She does not acknowledge your greeting.<br><br>"Well? Draw your weapon already,<br>and don't you expect me to go EASY on you!"`;
+    buttons = /*HTML*/`
+        <button onclick="tutorialCombatIntro()">Continue</button>`
+        updateScreen()
+}
+function tutorialCombatIntro() {
+    paragraph1 = `"Let's go over the basics.<br>Do you remember the game we used to play?<br>rock, paper, crossblades?<br><br>She makes a scissoring motion with her hand.<br><br>"Well, fighting is alot like that.<br>You use different techniques that all have their own strengths and weaknesses.<br>Here, I'll show you..."`;
+    buttons = /*HTML*/`
+        <button onclick="tutorialCombat()">Begin</button>`
+        updateScreen()
+}
+function tutorialCombat() {
+    paragraph1 = `"First of, try to hit me with a HEAVY ATTACK,<br>and then I'll disrupt it using a QUICK ATTACK."`;
+    buttons = /*HTML*/`
+        <button onclick="heavyAttackTutorial()">Heavy attack</button>`
+        updateScreen()
+}
+function heavyAttackTutorial() {
+    paragraph1 = `You charge at her with a HEAVY ATTACK.<br>Leaving yourself wide open.<br><br>She uses a QUICK ATTACK.<br>A quick strike to your temple stops you mid swing.<br><br>"See how I disrupted your HEAVY ATTACK with a quicker one? Now try using a QUICK ATTACK like i just did and I'll BLOCK it."`;
+    buttons = /*HTML*/`
+    <button onclick="quickAttackTutorial()">Quick attack</button>`
+    updateScreen()
+}
+function quickAttackTutorial() {
+    paragraph1 = `You lunge at her with a QUICK ATTACK.<br>Sacrificing strength for speed.<br>She uses BLOCK.<br>A steady swing of her quarterstaff deflects your strike.<br><br>"See how I deflected your QUICK ATTACK with a solid stance? Now try using BLOCK like I just did and I'll use a HEAVY ATTACK."`;
+    buttons = /*HTML*/`
+    <button onclick="blockTutorial()">Block</button>`
+    updateScreen()
+}
+function blockTutorial() {
+    paragraph1 = `You ready yourself with a BLOCK.<br>Focusing entirely on defense.<br>She uses a HEAVY ATTACK.<br>A mighty blow slams through your defenses.<br><br>"See how I broke your BLOCK by putting my weight into it? Alright, I think that's enough."<br><br>She wipes the sweat from her forehead, looks like you managed to tired her out.<br><br>"So then, let's summarize."`;
+    buttons = /*HTML*/`
+    <button onclick="summarize()">Summarize</button>`
+    updateScreen()
+}
+function summarize() {
+    paragraph1 = `"HEAVY ATTACK:<br>Disrupted by QUICK ATTACK,<br>but breaks BLOCK.<br><br>QUICK ATTACK:<br>deflected by BLOCK,<br>but disrupts HEAVY ATTACK.<br><br>BLOCK:<br>Broken by HEAVY ATTACK,<br>but deflects QUICK ATTACK.`;
+    buttons = /*HTML*/`
+    <button onclick="lindaFarewell()">continue</button>`
+    updateScreen()
+}
+function lindaFarewell() {
+    paragraph1 = `"Well, I did what i could. <br>if you die now it's your own fault!"<br><br>She turns her back to you and leaves, she never were good with farewells.`;
+    buttons = /*HTML*/`
+    <button onclick="day1()">Leave</button>`
+    updateScreen()
+}
+        
+
 function day1() {
     header = "LEAVING HOME";
     img = "/img/chapter1/dirt-road.jpg";
@@ -502,45 +562,11 @@ function day2() {
     img = "/img/chapter1/crossroad-inn-interior.jpg";
     paragraph1 = `You check out of the Crossroad Inn,<br>ready to continue your journey.`;
     buttons = /*HTML*/`
-        <button onclick="">Continue</button>`; 
+        <button onclick="crossroadLookAround()">Continue</button>`; 
     updateScreen()
 }
 
 
 
 
-
-tutorialCombat()
-function tutorialIntro() {
-    header = "LINDA";
-    img = "/img/tutorial-girl.jpg";
-    paragraph1 = `Before you manage to slip out of town in order to begin your journey you're stopped by "her".<br><br>"And where in the blazing hells do you think you're going?"<br><br>You had hoped you could avoid her but no such luck. She's about as pleasant as a wolf stuck in a well.<br>But you did say you'd spar with her before you left.<br><br>"I won't have your death on MY conscience.<br>You're not leaving until I know you're ready!"`;
-    paragraph2 = `YOU CHOOSE TO...`;
-    buttons = /*HTML*/`
-        <button onclick="tutorialCombat()">Greet her</button>
-        <button onclick="">Run away</button>`;
-        updateScreen()
-}
-function tutorialCombat() {
-    header = "COMBAT TUTORIAL";
-    paragraph1 = `"Hmpf!"<br><br>She does not acknowledge your greeting.<br><br>"Well? Draw your weapon already,<br>and don't you expect me to go EASY on you!"`;
-    buttons = /*HTML*/`
-        <button onclick="heavyAttack()">Heavy attack</button>
-        <button onclick="quickAttack()">Quick attack</button>
-        <button onclick="block()">Block</button>
-        <button onclick="">Run away</button>`;
-        updateScreen()
-}
-function tutorialCombat() {
-    header = "LINDA";
-    img = "/img/tutorial-girl.jpg";
-    paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}`;
-    paragraph2 = `YOU CHOOSE TO...`;
-    buttons = /*HTML*/`
-        <button onclick="heavyAttack()">Heavy attack</button>
-        <button onclick="quickAttack()">Quick attack</button>
-        <button onclick="block()">Block</button>
-        <button onclick="">Run away</button>`;
-        updateScreen()
-}
 
