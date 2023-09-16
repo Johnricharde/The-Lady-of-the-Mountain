@@ -141,7 +141,8 @@ function lindaFarewell() {
     <button onclick="day1()">Leave</button>`
     updateScreen()
 }
-        
+   
+
 
 function day1() {
     header = "LEAVING HOME";

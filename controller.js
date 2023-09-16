@@ -115,7 +115,6 @@ function rollD10() {
 
 
 
-
 // FUNCTIONS FOR CHARACTER CREATION SCREEN ++++++++++++++++++++++++++++++++++++++++++++ //
 function selectWeapon(weapon) {
     playerWeapon = weapon;

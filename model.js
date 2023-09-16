@@ -31,7 +31,6 @@ let strangerTrinket = false;
 
 
 
-
 // COMBAT VARIABLES
 // Player stats
 var playerHP = 50;

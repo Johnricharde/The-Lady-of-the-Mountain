@@ -64,3 +64,4 @@ function updateScreen() {
     `
     app.innerHTML = newScreen
 }
+
