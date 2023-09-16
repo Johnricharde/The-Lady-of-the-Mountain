@@ -571,7 +571,7 @@ function day2() {
 
 
 
-wolfCombat()
+// wolfCombat()
 
 function wolfCombat() {
     header = "WOLF";
