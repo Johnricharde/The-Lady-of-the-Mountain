@@ -20,34 +20,36 @@ function generateEnemyAction() {
 function heavyAttack() {
     generateEnemyAction()
     if (enemyAction == "Heavy attack") {
-        let dmgRoll = rollD20();
-        enemyHP -= dmgRoll;
-        dmgRoll = rollD20();
-        playerHP -= dmgRoll;
-        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used HEAVY ATTACK!<br>But so did you!`;
+        let playerDmgRoll = rollD20();
+        let enemyDmgRoll = rollD20();
+        let enemyDmg = enemyDmgRoll;
+        enemyHP -= playerDmgRoll;
+        playerHP -= enemyDmg;
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used HEAVY ATTACK!<br>But so did you!<br><br>You deal ${playerDmgRoll} damage!<br>They deal ${enemyDmg} damage!`;
     } else if (enemyAction == "Quick attack") {
-        let dmgRoll = rollD10();
-        playerHP -= dmgRoll;
-        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used QUICK ATTACK!<br>Disrupting your attack!`;
+        let enemyDmgRoll = rollD10();
+        let enemyDmg = enemyDmgRoll;
+        playerHP -= enemyDmg;
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used QUICK ATTACK!<br>Disrupting your attack!<br><br>They deal ${enemyDmg} damage!`;
     } else if (enemyAction == "Block") {
-        let dmgRoll = rollD20();
-        enemyHP -= dmgRoll;
-        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used BLOCK!<br>But you break their guard!`;
+        let playerDmgRoll = rollD20();
+        enemyHP -= playerDmgRoll;
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used BLOCK!<br>But you break their guard!<br><br>You deal ${playerDmgRoll} damage!`;
     }
     updateScreen()
 }
 function quickAttack() {
     generateEnemyAction()
     if (enemyAction == "Heavy attack") {
-        let dmgRoll = rollD10();
-        enemyHP -= dmgRoll;
-        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used HEAVY ATTACK!<br>But you disrupted their attack!`;
+        let playerDmgRoll = rollD10();
+        enemyHP -= playerDmgRoll;
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used HEAVY ATTACK!<br>But you disrupted their attack!<br><br>You deal ${playerDmgRoll} damage!`;
     } else if (enemyAction == "Quick attack") {
-        let dmgRoll = rollD10();
-        enemyHP -= dmgRoll;
-        dmgRoll = rollD10();
-        playerHP -= dmgRoll;
-        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used QUICK ATTACK!<br>But so did you!`;
+        let playerDmgRoll = rollD10();
+        let enemyDmgRoll = rollD10();
+        enemyHP -= playerDmgRoll;
+        playerHP -= enemyDmgRoll;
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used QUICK ATTACK!<br>But so did you!<br><br>You deal ${playerDmgRoll} damage!<br>They deal ${enemyDmgRoll} damage!`;
     } else if (enemyAction == "Block") {
         paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used BLOCK!<br>Deflecting your attack!`;
     }
@@ -56,9 +58,9 @@ function quickAttack() {
 function block() {
     generateEnemyAction()
     if (enemyAction == "Heavy attack") {
-        let dmgRoll = rollD20();
-        playerHP -= dmgRoll;
-        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used HEAVY ATTACK!<br>It breaks your guard!`;
+        let enemyDmgRoll = rollD20();
+        playerHP -= enemyDmgRoll;
+        paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used HEAVY ATTACK!<br>It breaks your guard!<br><br>They deal ${enemyDmgRoll} damage!`;
     } else if (enemyAction == "Quick attack") {
         paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>Enemy used QUICK ATTACK!<br>You deflect it!`;
     } else if (enemyAction == "Block") {
@@ -114,10 +116,6 @@ function rollD10() {
 
 
 
-
-
-
-
 // FUNCTIONS FOR CHARACTER CREATION SCREEN ++++++++++++++++++++++++++++++++++++++++++++ //
 function selectWeapon(weapon) {
     playerWeapon = weapon;
@@ -125,6 +123,11 @@ function selectWeapon(weapon) {
 }
 function selectArmor(armor) {
     playerArmor = armor;
+    if (playerArmor == "Heavy Armor") {
+        playerArmModifier = 4;
+    } else if (playerArmor == "Light Armor") {
+        playerArmModifier = 2;
+    } else {playerArmModifier = 0}
     updateRadioStyles();
 }
 function selectTrinket(trinket) {

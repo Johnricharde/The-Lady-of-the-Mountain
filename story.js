@@ -570,3 +570,17 @@ function day2() {
 
 
 
+
+wolfCombat()
+
+function wolfCombat() {
+    header = "WOLF";
+    img = "/img/wolf.jpg";
+    paragraph1 = `PLAYER HP: ${playerHP}<br>ENEMY HP: ${enemyHP}<br><br>You encounter a wolf!`;
+    buttons = /*HTML*/`
+        <button onclick="heavyAttack()">Heavy attack</button>
+        <button onclick="quickAttack()">Quick attack</button>
+        <button onclick="block()">Block</button>`
+    strangerMet = true;
+    updateScreen()
+}
