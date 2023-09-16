@@ -37,7 +37,7 @@ let strangerTrinket = false;
 var playerHP = 50;
 var playerHPMax = 50;
 var playerDmgModifier = 0;
-var playerArmModifier = 5; /*REMEMBER TO RESET TO ZERO!!!*/
+var playerArmModifier = 0;
 
 // Enemy stats
 var enemyHP = 50;
