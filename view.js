@@ -8,16 +8,20 @@ function updateScreen() {
                 
         <div class="container">
             <div id="stats-screen">
-                <br><h1>-CHARACTER-</h1><br>
+                <br><h1>- CHARACTER -</h1><br>
                 <div class="small-container">
                     <div>
                         <h5>HEALTH: ${playerHP} / ${playerHPMax}</h5>
                     </div>
                     <div>
-                        <h5>ARMOR: + ${playerArmModifier}</h5>
+                        <img onclick="useHealingFlask()" id="healing-flask" src="./img/healing-flask.png">
+                        <p>Flasks: ${playerHealingFlasks}</p>
                     </div>
                     <div>
-                        <h5>DAMAGE: + ${playerDmgModifier}</h5>
+                        <h5 title="You take less damage">ARMOR: + ${playerArmModifier}</h5>
+                    </div>
+                    <div>
+                        <h5 title="You deal more damage">DAMAGE: + ${playerDmgModifier}</h5>
                     </div>
                 </div>
             </div>
@@ -25,7 +29,7 @@ function updateScreen() {
 
         <div class="container">
             <div id="screen">
-                <h1>🙠 ${header} 🙢</h1>
+                <h1>🙠${header}🙢</h1>
                 <div id="img-div">
                     <img src="${img}">
                 </div>
@@ -37,7 +41,7 @@ function updateScreen() {
 
         <div class="container">
             <div id="inventory-screen">
-            <br><h1>-INVENTORY-</h1><br>
+            <br><h1>- INVENTORY -</h1><br>
                 <div class="small-container">
                     <h5>WEAPON:<br>${playerWeapon}</h5>
                     <h5>ARMOR:<br>${playerArmor}</h5>

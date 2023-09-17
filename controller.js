@@ -125,9 +125,27 @@ function rollD10() {
 
 
 
+// HEALING FLASKS FUNCTIONS
+function useHealingFlask() {
+    let healing = 25;
 
-
-
+    if (playerHealingFlasks > 0) {
+        if ((playerHP + healing) >= playerHPMax) {
+            playerHP = playerHPMax;
+            console.log("first")
+        } else if ((playerHP + healing) < playerHPMax) {
+            playerHP += healing;
+            console.log("second")
+        }
+    } else {
+        alert("You're out of healing potions!")
+    }
+    playerHealingFlasks -= 1;
+    updateScreen()
+}
+function addHealingFlask() {
+    playerHealingFlasks += 1;
+}
 
 
 

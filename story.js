@@ -32,21 +32,21 @@ function yourPast() {
             </label><br><br>
 
         In times of strife, you relied on your... <br>
-            <label class="custom-radio-button custom-radio-button-label" onclick="selectArmor('Heavy Armor')">
+            <label title="Adds + 4 to armor but at the cost of mobility" class="custom-radio-button custom-radio-button-label" onclick="selectArmor('Heavy Armor')">
                 <input type="radio" name="armor" value="Heavy Armor">Heavy Armor
             </label>
-            <label class="custom-radio-button custom-radio-button-label" onclick="selectArmor('Light Armor')">
+            <label title="Adds + 2 to armor but offers greater mobility" class="custom-radio-button custom-radio-button-label" onclick="selectArmor('Light Armor')">
                 <input type="radio" name="armor" value="Light Armor">Light Armor
             </label><br><br>
 
         And for the times ahead, you brougth your...<br>
-            <label class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Helmet of Illumination')">
+            <label title="Lets you blind your enemies and light up dark places" class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Helmet of Illumination')">
                 <input type="radio" name="trinket" value="Helmet of Illumination">Helmet of Illumination
             </label>
-            <label class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Cloak of Shadows')">
+            <label title="Lets you hide from enemies and sneak around" class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Cloak of Shadows')">
                 <input type="radio" name="trinket" value="Cloak of Shadows">Cloak of Shadows
             </label>
-            <label class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Amulet of Tongues')">
+            <label title="Lets you talk to those who don't normally speak your tongue" class="custom-radio-button custom-radio-button-label" onclick="selectTrinket('Amulet of Tongues')">
                 <input type="radio" name="trinket" value="Amulet of Tongues">Amulet of Tongues
             </label>`;
     buttons = /*HTML*/`<button onclick="selectedOneOfEach()">Continue</button>`;   
@@ -136,9 +136,10 @@ function summarize() {
     updateScreen()
 }
 function lindaFarewell() {
-    paragraph1 = `"Well, I did what i could. <br>if you die now it's your own fault!"<br><br>She turns her back to you and leaves, she never were good with farewells.`;
+    paragraph1 = `"Well, I did what i could."<br><br>She produces a healing flask from her pouch and hands it to you.<br><br>"if you die now it's your own fault!"<br><br>She turns her back to you and leaves, she never were good with farewells.`;
     buttons = /*HTML*/`
     <button onclick="day1()">Leave</button>`
+    addHealingFlask()
     updateScreen()
 }
    

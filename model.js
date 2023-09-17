@@ -13,9 +13,9 @@ let buttons = ``;
 
 // PLAYER ITEMS
 // Player starting items
-let playerWeapon = "Sword";
-let playerArmor = "Light Armor";
-let playerTrinket = "Amulet of Tongues";
+let playerWeapon = "";
+let playerArmor = "";
+let playerTrinket = "";
 
 // Backpack
 let backpackArray = [];
@@ -33,14 +33,15 @@ let strangerTrinket = false;
 
 // COMBAT VARIABLES
 // Player stats
-var playerHP = 50;
-var playerHPMax = 50;
-var playerDmgModifier = 0;
-var playerArmModifier = 0;
+let playerHP = 50;
+let playerHPMax = 50;
+let playerDmgModifier = 0;
+let playerArmModifier = 0;
+let playerHealingFlasks = 0;
 
 // Enemy stats
-var enemyHP = 50;
-var enemyAction = "";
+let enemyHP = 50;
+let enemyAction = "";
 const enemyActionArray = [
     "Heavy attack",
     "Quick attack",
