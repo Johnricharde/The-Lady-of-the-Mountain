@@ -264,7 +264,6 @@ function banditsUseHelmet() {
 
 
 
-banditsFight()
 
 
 function banditsFight() {
