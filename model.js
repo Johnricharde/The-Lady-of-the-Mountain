@@ -12,14 +12,14 @@ let buttons = ``;
 
 
 // PLAYER ITEMS
-// Player starting items
+// Player items
 let playerWeapon = "";
 let playerArmor = "";
 let playerTrinket = "";
 
+
 // Backpack
 let backpackArray = [];
-
 
 
 
@@ -37,10 +37,11 @@ let playerHP = 50;
 let playerHPMax = 50;
 let playerDmgModifier = 0;
 let playerArmModifier = 0;
-let playerHealingFlasks = 0;
+let playerHealingFlasks = 5;
+let playerGold = 0;
 
 // Enemy stats
-let enemyHP = 50;
+let enemyHP = 0;
 let enemyAction = "";
 const enemyActionArray = [
     "Heavy attack",

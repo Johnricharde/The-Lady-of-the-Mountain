@@ -15,8 +15,8 @@ function updateScreen() {
                     </div>
                     <div>
                         <img onclick="useHealingFlask()" id="healing-flask" src="./img/healing-flask.png">
-                        <p>Flasks: ${playerHealingFlasks}</p>
-                    </div>
+                        <h5 title="One flask heals 25HP">FLASKS: ${playerHealingFlasks}</h5>
+                    </div><br>
                     <div>
                         <h5 title="You take less damage">ARMOR: + ${playerArmModifier}</h5>
                     </div>
@@ -45,7 +45,7 @@ function updateScreen() {
                 <div class="small-container">
                     <h5>WEAPON:<br>${playerWeapon}</h5>
                     <h5>ARMOR:<br>${playerArmor}</h5>
-                    <h5>TRINKET:<br>${playerTrinket}</h5>
+                    <h5>TRINKET:<br>${playerTrinket}</h5><br>
                     <h5>BACKPACK:<br>
                         <ul>
                             <li>${backpackArray[0] || ""}</li>
@@ -60,6 +60,7 @@ function updateScreen() {
                             <li>${backpackArray[9] || ""}</li>
                         </ul>
                     </h5>
+                    <h5>GOLD: ${playerGold}</h5>
                 </div>
             </div>
         </div>
